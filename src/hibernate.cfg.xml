@@ -24,6 +24,7 @@
 		<mapping resource="./Registration.hbm.xml" />
 		<mapping resource="./Schedule.hbm.xml" />
 		<mapping resource="./Period.hbm.xml" />
+		<mapping resource="./User.hbm.xml" />
 
 	</session-factory>
 

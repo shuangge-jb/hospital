@@ -14,11 +14,15 @@ public class Hospital  implements java.io.Serializable {
 
     // Fields    
 
-     private Integer id;
+     /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private Integer id;
      private String name;
      private String address;
-     private Set doctors = new HashSet(0);
-     private Set departments = new HashSet(0);
+     private Set<Doctor> doctors = new HashSet<Doctor>(0);
+     private Set<Department> departments = new HashSet<Department>(0);
 
 
     // Constructors
@@ -34,7 +38,7 @@ public class Hospital  implements java.io.Serializable {
     }
     
     /** full constructor */
-    public Hospital(String name, String address, Set doctors, Set departments) {
+    public Hospital(String name, String address, Set<Doctor> doctors, Set<Department> departments) {
         this.name = name;
         this.address = address;
         this.doctors = doctors;
@@ -68,19 +72,19 @@ public class Hospital  implements java.io.Serializable {
         this.address = address;
     }
 
-    public Set getDoctors() {
+    public Set<Doctor> getDoctors() {
         return this.doctors;
     }
     
-    public void setDoctors(Set doctors) {
+    public void setDoctors(Set<Doctor> doctors) {
         this.doctors = doctors;
     }
 
-    public Set getDepartments() {
+    public Set<Department> getDepartments() {
         return this.departments;
     }
     
-    public void setDepartments(Set departments) {
+    public void setDepartments(Set<Department> departments) {
         this.departments = departments;
     }
    

@@ -47,7 +47,7 @@
 					<ul class="login">
 						<li><span class="left">用户名:</span> <span style="left">
 								<input type="text" value="${user.userName }"
-								name="doctor.userName" id="userName" class="input"/>
+								name="doctor.userName" id="userName" class="input" />
 
 						</span></li>
 						<li><span class="left">性别：</span> <span style="left">
@@ -58,18 +58,20 @@
 
 						</span></li>
 						<li><span class="left">年龄：</span> <span style="left">
-								<input type="text" value="${user.age }" name="user.age" id="age" class="input"/>
+								<input type="text" value="${user.age }" name="user.age" id="age"
+								class="input" />
 						</span></li>
 						<li><span class="left">科室：</span> <span style="left">
-								<input type="text" value="${user.apartment }"
-								name="user.department" id="department" class="input"/>
+								<select name="user.department" id="department" class="input">
+							</select>
 						</span></li>
 						<li><span class="left">电话：</span> <span style="left">
-								<input type="text" value="${user.tel }" name="user.tel" id="tel" class="input"/>
+								<input type="text" value="${user.tel }" name="user.tel" id="tel"
+								class="input" />
 						</span></li>
 						<li><span class="left">医院：</span> <span style="left">
 								<input type="text" value="${user.hospital }"
-								name="user.hospital" id="hospital" class="input"/>
+								name="user.hospital" id="hospital" class="input" />
 						</span></li>
 						<li><span class="left">验证码:</span> <span style="left">
 								<input type="text" value="${imageCode }" name="imageCode"

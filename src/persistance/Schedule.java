@@ -6,6 +6,7 @@ import persistance.Period;
 
 /**
  * Schedule entity. @author MyEclipse Persistence Tools
+ * ≈≈∞‡±Ì
  */
 
 public class Schedule  implements java.io.Serializable {
@@ -13,7 +14,11 @@ public class Schedule  implements java.io.Serializable {
 
     // Fields    
 
-     private ScheduleId id;
+     /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private ScheduleId id;
      private Doctor doctor;
      private Period period;
 

@@ -13,14 +13,18 @@ import persistance.Hospital;
 public class Department  implements java.io.Serializable {
 
 
-    // Fields    
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	// Fields    
 
      private Integer id;
      private Hospital hospital;
      private String type;
      private String name;
-     private Set registrations = new HashSet(0);
-     private Set doctors = new HashSet(0);
+     private Set<Registration> registrations = new HashSet<Registration>(0);
+     private Set<Doctor> doctors = new HashSet<Doctor>(0);
 
 
     // Constructors
@@ -37,7 +41,7 @@ public class Department  implements java.io.Serializable {
     }
     
     /** full constructor */
-    public Department(Hospital hospital, String type, String name, Set registrations, Set doctors) {
+    public Department(Hospital hospital, String type, String name, Set<Registration> registrations, Set<Doctor> doctors) {
         this.hospital = hospital;
         this.type = type;
         this.name = name;
@@ -80,19 +84,19 @@ public class Department  implements java.io.Serializable {
         this.name = name;
     }
 
-    public Set getRegistrations() {
+    public Set<Registration> getRegistrations() {
         return this.registrations;
     }
     
-    public void setRegistrations(Set registrations) {
+    public void setRegistrations(Set<Registration> registrations) {
         this.registrations = registrations;
     }
 
-    public Set getDoctors() {
+    public Set<Doctor> getDoctors() {
         return this.doctors;
     }
     
-    public void setDoctors(Set doctors) {
+    public void setDoctors(Set<Doctor> doctors) {
         this.doctors = doctors;
     }
    
