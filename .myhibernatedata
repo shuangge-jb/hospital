@@ -1,0 +1,17 @@
+#MyEclipse Hibernate Properties
+#Sat May 14 19:20:40 CST 2016
+genVersionTag=false
+sessionFactoryName=persistance.HibernateSessionFactory
+genAnnotations=false
+configFile=/hospital/src/hibernate.cfg.xml
+reStrategyClass=
+sessionFactoryId=
+profile=
+detectM2M=false
+genBasicCompId=false
+keyGenerator=
+createConfigFile=true
+basePersistenceClass=
+detectO2O=false
+useJavaTypes=true
+reSettingsFile=
