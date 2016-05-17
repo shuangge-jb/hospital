@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd" >
+
+<hibernate-reverse-engineering>
+	<table name="department" catalog="hospital" class="Department"></table>
+	<table name="hospital" catalog="hospital" class="Hospital"></table>
+	<table name="doctor" catalog="hospital" class="Doctor"></table>
+	<table name="registration" catalog="hospital"
+		class="Registration">
+	</table>
+	<table name="schedule" catalog="hospital" class="Schedule"></table>
+	<table name="period" catalog="hospital" class="Period"></table>
+</hibernate-reverse-engineering>
