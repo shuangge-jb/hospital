@@ -6,6 +6,6 @@ import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
  * @author Administrator
  *
  */
-public class RegistratoionDao extends HibernateDaoSupport {
+public class RegistrationDao extends HibernateDaoSupport {
 
 }

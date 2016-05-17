@@ -61,6 +61,10 @@
 								<input type="text" value="${user.age }" name="user.age" id="age"
 								class="input" />
 						</span></li>
+						<li><span class="left">医院：</span> <span style="left">
+								<input type="text" value="${user.hospital }"
+								name="user.hospital" id="hospital" class="input" />
+						</span></li>
 						<li><span class="left">科室：</span> <span style="left">
 								<select name="user.department" id="department" class="input">
 							</select>
@@ -69,10 +73,7 @@
 								<input type="text" value="${user.tel }" name="user.tel" id="tel"
 								class="input" />
 						</span></li>
-						<li><span class="left">医院：</span> <span style="left">
-								<input type="text" value="${user.hospital }"
-								name="user.hospital" id="hospital" class="input" />
-						</span></li>
+						
 						<li><span class="left">验证码:</span> <span style="left">
 								<input type="text" value="${imageCode }" name="imageCode"
 								id="imageCode" size="10" />

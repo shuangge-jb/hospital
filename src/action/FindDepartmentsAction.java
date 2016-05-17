@@ -2,14 +2,19 @@ package action;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import persistance.Department;
+import service.DepartmentService;
 
 import com.opensymphony.xwork2.ActionSupport;
 
 import dao.DepartmentDao;
 
 public class FindDepartmentsAction extends ActionSupport {
-	private DepartmentDao departmentDao = new DepartmentDao();
+	private DepartmentService departmentService ;
+	private HttpServletRequest request;
 	/**
 	 * 
 	 */
@@ -22,14 +27,12 @@ public class FindDepartmentsAction extends ActionSupport {
 	 */
 	@Override
 	public String execute() throws Exception {
-		// TODO
-		@SuppressWarnings("unchecked")
-		List<Department> list = (List<Department>) departmentDao.findAll();
-		StringBuffer sb = new StringBuffer();
-		for (Department item : list) {
-
-			sb.append(item.getType());
-		}
+		HttpSession session=request.getSession();	
+		String hospitalName=(String) session.getAttribute("hospital");
+		List<String>departments=departmentService.getDepartmentsInHospital(hospitalName);
+		//TODO
+		//´ò°ü³ÉJSON
+		
 		return null;
 	}
 
