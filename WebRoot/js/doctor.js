@@ -6,7 +6,7 @@ $("#userName").blur(function() {
 
 	var result = $.ajax({
 		type : "post",
-		url : "ValidateAction",// 需要用来处理ajax请求的action,excuteAjax为处理的方法名，JsonAction为action名
+		url : "UserValidateAction",// 需要用来处理ajax请求的action,excuteAjax为处理的方法名，JsonAction为action名
 		data : {// 设置数据源
 			name : value
 		},

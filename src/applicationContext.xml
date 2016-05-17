@@ -41,10 +41,58 @@
 				<!-- 是否在控制台输出sql语句 -->
 				<prop key="show_sql">true</prop>
 				<prop key="hibernate.hbm2ddl.auto">update</prop>
+				<prop key="hibernate.show_sql">true</prop>
+				<prop key="hibernate.format_sql">true</prop>
 				<prop key="hibernate.jdbc.batch_size">20</prop>
 			</props>
 		</property>
 	</bean>
+	<!-- Dao -->
+	<bean id="userDao" class="dao.UserDao">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="doctorDao" class="dao.DoctorDao">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="departmentDao" class="dao.DepartmentDao">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="hospitalDao" class="dao.HospitalDao">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="periodDao" class="dao.PeriodDao">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="scheduleDao" class="dao.ScheduleDao">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+
+	<bean id="registrationDao" class="dao.RegistrationDao">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<!-- service -->
+	<bean id="userService" class="service.UserService">
+		<property name="userDao" ref="userDao"></property>
+	</bean>
+	<bean id="doctorService" class="service.DoctorService">
+		<property name="doctorDao" ref="doctorDao"></property>
+	</bean>
+	<bean id="departmentService" class="service.DepartmentService">
+		<property name="departmentDao" ref="departmentDao"></property>
+	</bean>
+	<bean id="hospitalService" class="service.HospitalService">
+		<property name="hospitalDao" ref="hospitalDao"></property>
+	</bean>
+	<bean id="registrationService" class="service.RegistrationService">
+		<property name="registrationDao" ref="registrationDao"></property>
+	</bean>
+	<bean id="periodService" class="service.PeriodService">
+		<property name="periodDao" ref="periodDao"></property>
+	</bean>
+	<bean id="scheduleService" class="service.scheduleService">
+		<property name="scheduleDao" ref="scheduleDao"></property>
+	</bean>
+	<!-- 事务管理器 -->
 	<bean id="transactionManager"
 		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
 		<property name="sessionFactory" ref="sessionFactory" />
@@ -82,5 +130,5 @@
 			</list>
 		</property>
 	</bean>
-	<!-- 依赖注入 -->
+	
 </beans>
