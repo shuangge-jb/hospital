@@ -7,7 +7,7 @@ import org.apache.struts2.interceptor.ServletRequestAware;
 
 import service.DoctorService;
 import com.opensymphony.xwork2.ActionSupport;
-
+import net.sf.json.JSONObject;
 public class DoctorValidateAction extends ActionSupport implements
 		ServletRequestAware {
 	/**
@@ -51,7 +51,10 @@ public class DoctorValidateAction extends ActionSupport implements
 		HttpSession session = request.getSession();
 		String userName = (String) session.getAttribute("userName");
 		boolean isExisted = doctorService.isExisted(userName);
-		return isExisted == false ? VALID : INVALID;
+		JSONObject jsonObject = new JSONObject();
+		jsonObject.accumulate("result", INVALID);
+//		return isExisted == false ? VALID : INVALID;
+		return jsonObject.toString();
 	}
 
 }

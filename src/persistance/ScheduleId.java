@@ -5,7 +5,6 @@ package persistance;
 
 /**
  * ScheduleId entity. @author MyEclipse Persistence Tools
- * ÅÅ°à±íµÄID
  */
 
 public class ScheduleId  implements java.io.Serializable {

@@ -6,39 +6,26 @@
 			+ path + "/";
 %>
 
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!DOCTYPE HTML>
 <html>
 <head>
 <base href="<%=basePath%>">
 
 <title>医生登录页面</title>
 
-<meta http-equiv="pragma" content="no-cache">
-<meta http-equiv="cache-control" content="no-cache">
-<meta http-equiv="expires" content="0">
-<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
-<meta http-equiv="description" content="This is my page">
+
 <!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
 
 </head>
-<script type="text/javascript">
-	function resetValue() {
-		document.getElementById("userName").value = "";
-		document.getElementById("password").value = "";
-	}
-
-	function loadimage() {
-		document.getElementById("randImage").src = "image.jsp?" + Math.random();
-	}
-</script>
-<script src="../js/doctor.js"></script>
+<script type="text/javascript"
+	src="js/jquery.min.js"></script>
+<script src="js/doctorInfo.js"></script>
 <body>
 	<form id="form" action="login" method="post">
 		<div class="Main">
 			<ul>
-
 				<li class="topB"><span> <img src="images/login/logo.png"
 						alt="" style="" />
 				</span></li>
@@ -48,7 +35,6 @@
 						<li><span class="left">用户名:</span> <span style="left">
 								<input type="text" value="${user.userName }"
 								name="doctor.userName" id="userName" class="input" />
-
 						</span></li>
 						<li><span class="left">性别：</span> <span style="left">
 								<select name="sex" id="sex" class="select">
@@ -74,14 +60,6 @@
 								class="input" />
 						</span></li>
 						
-						<li><span class="left">验证码:</span> <span style="left">
-								<input type="text" value="${imageCode }" name="imageCode"
-								id="imageCode" size="10" />
-						</span> <span style="left"> <img onclick="javascript:loadimage();"
-								title="换一张试试" name="randImage" id="randImage" src="image.jsp"
-								width="60" height="20" border="1" align="absmiddle">
-						</span></li>
-
 					</ul>
 				</li>
 
