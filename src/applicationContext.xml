@@ -89,7 +89,7 @@
 	<bean id="periodService" class="service.PeriodService">
 		<property name="periodDao" ref="periodDao"></property>
 	</bean>
-	<bean id="scheduleService" class="service.scheduleService">
+	<bean id="scheduleService" class="service.ScheduleService">
 		<property name="scheduleDao" ref="scheduleDao"></property>
 	</bean>
 	<!-- 事务管理器 -->

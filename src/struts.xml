@@ -12,17 +12,13 @@
 				class="action.interceptors.SessionInterceptor" />
 		</interceptors>
 		<global-results>
-			<result name="loginPage">/login.jsp</result>
+			<result name="doctorPage">/doctor.jsp</result>
 		</global-results>
-		<action name="loginValidate"
-			class="com.cjg.action.validators.LoginValidate">
-			<result name="input">/login.jsp</result>
-			<result type="chain">login</result><!-- 该类型是请求转发给其他的action -->
+		<action name="doctorValidate"
+			class="action.DoctorValidate">
+			<result name="input">/doctor.jsp</result>
 		</action>
-		<action name="login" class="login">
-			<result>/jsp/frame/frame.jsp</result>
-			<result name="error">/login.jsp</result>
-		</action>
+		
 		<action name="newvoteValidate"
 			class="com.cjg.action.validators.NewvoteValidate">
 			<result name="input">/jsp/vote/newvote.jsp</result>

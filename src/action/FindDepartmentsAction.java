@@ -20,6 +20,20 @@ public class FindDepartmentsAction extends ActionSupport {
 	 */
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * @param departmentService the departmentService to set
+	 */
+	public void setDepartmentService(DepartmentService departmentService) {
+		this.departmentService = departmentService;
+	}
+
+	/**
+	 * @param request the request to set
+	 */
+	public void setRequest(HttpServletRequest request) {
+		this.request = request;
+	}
+
 	/*
 	 * (non-Javadoc)
 	 * 

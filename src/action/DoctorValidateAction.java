@@ -5,21 +5,19 @@ import javax.servlet.http.HttpSession;
 
 import org.apache.struts2.interceptor.ServletRequestAware;
 
-import service.UserService;
-
+import service.DoctorService;
 import com.opensymphony.xwork2.ActionSupport;
 
-public class UserValidateAction extends ActionSupport implements
+public class DoctorValidateAction extends ActionSupport implements
 		ServletRequestAware {
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 	private HttpServletRequest request;
-	private UserService userService;
+	private DoctorService doctorService;
 	private static final String VALID = "valid";
 	private static final String INVALID = "invalid";
-	private static final String ISEXISTED = "existed";
 
 	@Override
 	public void setServletRequest(HttpServletRequest request) {
@@ -39,8 +37,8 @@ public class UserValidateAction extends ActionSupport implements
 	 * @param userService
 	 *            the userService to set
 	 */
-	public void setUserService(UserService userService) {
-		this.userService = userService;
+	public void setDoctorService(DoctorService doctorService) {
+		this.doctorService = doctorService;
 	}
 
 	/*
@@ -52,7 +50,7 @@ public class UserValidateAction extends ActionSupport implements
 	public String execute() throws Exception {
 		HttpSession session = request.getSession();
 		String userName = (String) session.getAttribute("userName");
-		boolean isExisted = userService.isExisted(userName);
+		boolean isExisted = doctorService.isExisted(userName);
 		return isExisted == false ? VALID : INVALID;
 	}
 

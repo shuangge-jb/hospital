@@ -34,5 +34,8 @@
         <property name="birthday" type="java.util.Date">
             <column name="birthday" length="10" not-null="true" />
         </property>
+        <property name="isdoctor" type="java.lang.Boolean">
+            <column name="isdoctor" not-null="true" />
+        </property>
     </class>
 </hibernate-mapping>
