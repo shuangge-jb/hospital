@@ -24,7 +24,7 @@ public class Doctor  implements java.io.Serializable {
      private String name;
      private String sex;
      private Integer age;
-     private Long tel;
+     private String tel;
      private Set<Schedule> schedules = new HashSet<Schedule>(0);
      private Set<Registration> registrations = new HashSet<Registration>(0);
 
@@ -36,7 +36,7 @@ public class Doctor  implements java.io.Serializable {
     }
 
 	/** minimal constructor */
-    public Doctor(Department department, Hospital hospital, String name, String sex, Integer age, Long tel) {
+    public Doctor(Department department, Hospital hospital, String name, String sex, Integer age, String tel) {
         this.department = department;
         this.hospital = hospital;
         this.name = name;
@@ -46,7 +46,7 @@ public class Doctor  implements java.io.Serializable {
     }
     
     /** full constructor */
-    public Doctor(Department department, Hospital hospital, String name, String sex, Integer age, Long tel, Set<Schedule> schedules, Set<Registration> registrations) {
+    public Doctor(Department department, Hospital hospital, String name, String sex, Integer age, String tel, Set<Schedule> schedules, Set<Registration> registrations) {
         this.department = department;
         this.hospital = hospital;
         this.name = name;
@@ -108,11 +108,11 @@ public class Doctor  implements java.io.Serializable {
         this.age = age;
     }
 
-    public Long getTel() {
+    public String getTel() {
         return this.tel;
     }
     
-    public void setTel(Long tel) {
+    public void setTel(String tel) {
         this.tel = tel;
     }
 

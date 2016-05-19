@@ -19,8 +19,8 @@ public class User  implements java.io.Serializable {
      private String userRealname;
      private String sex;
      private String address;
-     private Long tel;
-     private Long identificationId;
+     private String tel;
+     private String identificationId;
      private Date birthday;
      private Boolean isdoctor;
 
@@ -33,7 +33,7 @@ public class User  implements java.io.Serializable {
 
     
     /** full constructor */
-    public User(String userName, String userPwd, String userRealname, String sex, String address, Long tel, Long identificationId, Date birthday, Boolean isdoctor) {
+    public User(String userName, String userPwd, String userRealname, String sex, String address, String tel, String identificationId, Date birthday, Boolean isdoctor) {
         this.userName = userName;
         this.userPwd = userPwd;
         this.userRealname = userRealname;
@@ -96,19 +96,19 @@ public class User  implements java.io.Serializable {
         this.address = address;
     }
 
-    public Long getTel() {
+    public String getTel() {
         return this.tel;
     }
     
-    public void setTel(Long tel) {
+    public void setTel(String tel) {
         this.tel = tel;
     }
 
-    public Long getIdentificationId() {
+    public String getIdentificationId() {
         return this.identificationId;
     }
     
-    public void setIdentificationId(Long identificationId) {
+    public void setIdentificationId(String identificationId) {
         this.identificationId = identificationId;
     }
 

@@ -130,5 +130,23 @@
 			</list>
 		</property>
 	</bean>
-	
+	<bean id="doctorName" class="java.lang.String"></bean>
+	<bean id="sex" class="java.lang.String"></bean>
+	<bean id="hospital" class="java.lang.String"></bean>
+	<bean id="department" class="java.lang.String"></bean>
+	<bean id="tel" class="java.lang.String"></bean>
+	<bean id="doctorAction" class="action.DoctorAction">
+		<property name="doctorInfo">
+			<map>
+				<entry key="doctorName" value-ref="doctorName"></entry>
+				<entry key="sex" value-ref="sex"></entry>
+				<!-- age初始值 -->
+				<entry key="age" value="1"></entry>
+				<entry key="hospital" value-ref="hospital"></entry>
+				<entry key="department" value-ref="department"></entry>
+				<entry key="tel" value-ref="tel"></entry>
+			</map>
+		</property>
+	</bean>
+
 </beans>

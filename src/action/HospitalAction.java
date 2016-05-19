@@ -4,7 +4,7 @@ import service.HospitalService;
 
 import com.opensymphony.xwork2.ActionSupport;
 
-public class FindHospitalsAction extends ActionSupport {
+public class HospitalAction extends ActionSupport {
 private HospitalService hospitalService;
 	/**
 	 * 

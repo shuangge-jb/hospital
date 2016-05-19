@@ -13,17 +13,11 @@
 
 <title>医生登录页面</title>
 
-
-<!--
-	<link rel="stylesheet" type="text/css" href="styles.css">
-	-->
-
 </head>
-<script type="text/javascript"
-	src="js/jquery.min.js"></script>
+<script src="js/jquery.min.js"></script>
 <script src="js/doctorInfo.js"></script>
 <body>
-	<form id="form" action="login" method="post">
+	<form id="form" action="doctorAction!save.action" method="post">
 		<div class="Main">
 			<ul>
 				<li class="topB"><span> <img src="images/login/logo.png"
@@ -34,7 +28,7 @@
 					<ul class="login">
 						<li><span class="left">用户名:</span> <span style="left">
 								<input type="text" value="${user.userName }"
-								name="doctor.userName" id="userName" class="input" />
+								name="doctor.doctorName" id="doctorName" class="input" />
 						</span></li>
 						<li><span class="left">性别：</span> <span style="left">
 								<select name="sex" id="sex" class="select">
@@ -48,8 +42,9 @@
 								class="input" />
 						</span></li>
 						<li><span class="left">医院：</span> <span style="left">
-								<input type="text" value="${user.hospital }"
-								name="user.hospital" id="hospital" class="input" />
+								<select name="user.hospital" id="hospital" class="input">
+
+							</select>
 						</span></li>
 						<li><span class="left">科室：</span> <span style="left">
 								<select name="user.department" id="department" class="input">
@@ -59,14 +54,15 @@
 								<input type="text" value="${user.tel }" name="user.tel" id="tel"
 								class="input" />
 						</span></li>
-						
+
 					</ul>
 				</li>
 
 
 				<li class="middle_C"><span style="margin:15px"><input
-						type="submit" value="登录" /></span> <span style="margin:10px"><input
-						type="button" value="重置" onclick="resetValue()" /></span></li>
+						type="submit" value="登录"  /></span> <span
+					style="margin:10px"><input type="button" value="重置"
+						onclick="resetValue()" /></span></li>
 				<li class="middle_D"></li>
 				<li class="bottom_A"></li>
 

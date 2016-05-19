@@ -1,8 +1,14 @@
 package service;
 
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
+
+
+
 
 import persistance.User;
 import dao.DoctorDao;
@@ -30,5 +36,11 @@ public class DoctorService {
 			}
 			return userNames.contains(userName);
 
+		}
+		/**
+		 * 保存注册信息进数据库
+		 */
+		public void save(Map<String,String>map){
+			doctorDao.save(map);
 		}
 }

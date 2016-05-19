@@ -2,6 +2,7 @@ package service;
 
 import java.util.List;
 
+
 import dao.DepartmentDao;
 
 /**
@@ -21,9 +22,10 @@ public class DepartmentService {
 		this.departmentDao = departmentDao;
 	}
 
-	public List<String> getDepartmentsInHospital(String hospitalName) {
+	public List<String> getDepartmentNamesInHospital(String hospitalName) {
 		//TODO
+		departmentDao.find(hospitalName);
 		return null;
-
 	}
+	
 }

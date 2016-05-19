@@ -25,10 +25,10 @@
         <property name="address" type="java.lang.String">
             <column name="address" length="65535" not-null="true" />
         </property>
-        <property name="tel" type="java.lang.Long">
+        <property name="tel" type="java.lang.String">
             <column name="tel" not-null="true" />
         </property>
-        <property name="identificationId" type="java.lang.Long">
+        <property name="identificationId" type="java.lang.String">
             <column name="identification_id" not-null="true" />
         </property>
         <property name="birthday" type="java.util.Date">

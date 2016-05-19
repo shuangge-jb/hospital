@@ -25,7 +25,7 @@
         <property name="age" type="java.lang.Integer">
             <column name="age" not-null="true" />
         </property>
-        <property name="tel" type="java.lang.Long">
+        <property name="tel" type="java.lang.String">
             <column name="tel" not-null="true" />
         </property>
         <set name="schedules" inverse="true">

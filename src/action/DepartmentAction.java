@@ -12,7 +12,7 @@ import com.opensymphony.xwork2.ActionSupport;
 
 import dao.DepartmentDao;
 
-public class FindDepartmentsAction extends ActionSupport {
+public class DepartmentAction extends ActionSupport {
 	private DepartmentService departmentService ;
 	private HttpServletRequest request;
 	/**
@@ -43,7 +43,7 @@ public class FindDepartmentsAction extends ActionSupport {
 	public String execute() throws Exception {
 		HttpSession session=request.getSession();	
 		String hospitalName=(String) session.getAttribute("hospital");
-		List<String>departments=departmentService.getDepartmentsInHospital(hospitalName);
+		List<String>departments=departmentService.getDepartmentNamesInHospital(hospitalName);
 		//TODO
 		//´ò°ü³ÉJSON
 		
