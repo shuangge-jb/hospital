@@ -9,7 +9,7 @@ $(document)
 
 						$.ajax({
 							type : "post",
-							url : "doctorAction.action",
+							url : "nameValidate.action",
 							data : {
 								doctorName : value
 							},

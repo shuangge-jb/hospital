@@ -26,16 +26,13 @@
             <column name="address" length="65535" not-null="true" />
         </property>
         <property name="tel" type="java.lang.String">
-            <column name="tel" not-null="true" />
+            <column name="tel" length="20" not-null="true" />
         </property>
         <property name="identificationId" type="java.lang.String">
-            <column name="identification_id" not-null="true" />
+            <column name="identification_id" length="20" not-null="true" />
         </property>
         <property name="birthday" type="java.util.Date">
             <column name="birthday" length="10" not-null="true" />
-        </property>
-        <property name="isdoctor" type="java.lang.Boolean">
-            <column name="isdoctor" not-null="true" />
         </property>
     </class>
 </hibernate-mapping>

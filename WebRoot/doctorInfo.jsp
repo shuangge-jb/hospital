@@ -11,13 +11,13 @@
 <head>
 <base href="<%=basePath%>">
 
-<title>医生登录页面</title>
+<title>医生注册页面</title>
 
 </head>
 <script src="js/jquery.min.js"></script>
 <script src="js/doctorInfo.js"></script>
 <body>
-	<form id="form" action="doctorAction!save.action" method="post">
+	<form id="doctorRegistration" action="/doctorAction!save.action" method="post">
 		<div class="Main">
 			<ul>
 				<li class="topB"><span> <img src="images/login/logo.png"
@@ -60,7 +60,7 @@
 
 
 				<li class="middle_C"><span style="margin:15px"><input
-						type="submit" value="登录"  /></span> <span
+						type="submit" value="注册"  /></span> <span
 					style="margin:10px"><input type="button" value="重置"
 						onclick="resetValue()" /></span></li>
 				<li class="middle_D"></li>

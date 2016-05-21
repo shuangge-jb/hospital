@@ -26,7 +26,7 @@
             <column name="age" not-null="true" />
         </property>
         <property name="tel" type="java.lang.String">
-            <column name="tel" not-null="true" />
+            <column name="tel" length="20" not-null="true" />
         </property>
         <set name="schedules" inverse="true">
             <key>

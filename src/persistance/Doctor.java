@@ -1,143 +1,135 @@
 package persistance;
+
 // default package
 
 import java.util.HashSet;
 import java.util.Set;
 
-
 /**
  * Doctor entity. @author MyEclipse Persistence Tools
  */
 
-public class Doctor  implements java.io.Serializable {
+public class Doctor implements java.io.Serializable {
 
+	// Fields
 
-    // Fields    
-
-     /**
+	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 	private Integer id;
-     private Department department;
-     private Hospital hospital;
-     private String name;
-     private String sex;
-     private Integer age;
-     private String tel;
-     private Set<Schedule> schedules = new HashSet<Schedule>(0);
-     private Set<Registration> registrations = new HashSet<Registration>(0);
+	private Department department;
+	private Hospital hospital;
+	private String name;
+	private String sex;
+	private Integer age;
+	private String tel;
+	private Set<Schedule> schedules = new HashSet<Schedule>(0);
+	private Set<Registration> registrations = new HashSet<Registration>(0);
 
+	// Constructors
 
-    // Constructors
-
-    /** default constructor */
-    public Doctor() {
-    }
+	/** default constructor */
+	public Doctor() {
+	}
 
 	/** minimal constructor */
-    public Doctor(Department department, Hospital hospital, String name, String sex, Integer age, String tel) {
-        this.department = department;
-        this.hospital = hospital;
-        this.name = name;
-        this.sex = sex;
-        this.age = age;
-        this.tel = tel;
-    }
-    
-    /** full constructor */
-    public Doctor(Department department, Hospital hospital, String name, String sex, Integer age, String tel, Set<Schedule> schedules, Set<Registration> registrations) {
-        this.department = department;
-        this.hospital = hospital;
-        this.name = name;
-        this.sex = sex;
-        this.age = age;
-        this.tel = tel;
-        this.schedules = schedules;
-        this.registrations = registrations;
-    }
+	public Doctor(Department department, Hospital hospital, String name,
+			String sex, Integer age, String tel) {
+		this.department = department;
+		this.hospital = hospital;
+		this.name = name;
+		this.sex = sex;
+		this.age = age;
+		this.tel = tel;
+	}
 
-   
-    // Property accessors
+	/** full constructor */
+	public Doctor(Department department, Hospital hospital, String name,
+			String sex, Integer age, String tel, Set<Schedule> schedules,
+			Set<Registration> registrations) {
+		this.department = department;
+		this.hospital = hospital;
+		this.name = name;
+		this.sex = sex;
+		this.age = age;
+		this.tel = tel;
+		this.schedules = schedules;
+		this.registrations = registrations;
+	}
 
-    public Integer getId() {
-        return this.id;
-    }
-    
-    public void setId(Integer id) {
-        this.id = id;
-    }
+	// Property accessors
 
-    public Department getDepartment() {
-        return this.department;
-    }
-    
-    public void setDepartment(Department department) {
-        this.department = department;
-    }
+	public Integer getId() {
+		return this.id;
+	}
 
-    public Hospital getHospital() {
-        return this.hospital;
-    }
-    
-    public void setHospital(Hospital hospital) {
-        this.hospital = hospital;
-    }
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
-    public String getName() {
-        return this.name;
-    }
-    
-    public void setName(String name) {
-        this.name = name;
-    }
+	public Department getDepartment() {
+		return this.department;
+	}
 
-    public String getSex() {
-        return this.sex;
-    }
-    
-    public void setSex(String sex) {
-        this.sex = sex;
-    }
+	public void setDepartment(Department department) {
+		this.department = department;
+	}
 
-    public Integer getAge() {
-        return this.age;
-    }
-    
-    public void setAge(Integer age) {
-        this.age = age;
-    }
+	public Hospital getHospital() {
+		return this.hospital;
+	}
 
-    public String getTel() {
-        return this.tel;
-    }
-    
-    public void setTel(String tel) {
-        this.tel = tel;
-    }
+	public void setHospital(Hospital hospital) {
+		this.hospital = hospital;
+	}
 
-    public Set<Schedule> getSchedules() {
-        return this.schedules;
-    }
-    
-    public void setSchedules(Set<Schedule> schedules) {
-        this.schedules = schedules;
-    }
+	public String getName() {
+		return this.name;
+	}
 
-    public Set<Registration> getRegistrations() {
-        return this.registrations;
-    }
-    
-    public void setRegistrations(Set<Registration> registrations) {
-        this.registrations = registrations;
-    }
-   
+	public void setName(String name) {
+		this.name = name;
+	}
 
+	public String getSex() {
+		return this.sex;
+	}
 
+	public void setSex(String sex) {
+		this.sex = sex;
+	}
 
+	public Integer getAge() {
+		return this.age;
+	}
 
+	public void setAge(Integer age) {
+		this.age = age;
+	}
 
+	public String getTel() {
+		return this.tel;
+	}
 
+	public void setTel(String tel) {
+		this.tel = tel;
+	}
 
+	public Set<Schedule> getSchedules() {
+		return this.schedules;
+	}
+
+	public void setSchedules(Set<Schedule> schedules) {
+		this.schedules = schedules;
+	}
+
+	public Set<Registration> getRegistrations() {
+		return this.registrations;
+	}
+
+	public void setRegistrations(Set<Registration> registrations) {
+		this.registrations = registrations;
+	}
 
 }

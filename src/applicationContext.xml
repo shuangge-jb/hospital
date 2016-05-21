@@ -8,7 +8,7 @@
 		<!-- 指定连接数据库驱动 -->
 		<property name="driverClass" value="com.mysql.jdbc.Driver" />
 		<!-- 指定连接数据库url -->
-		<property name="jdbcUrl" value="jdbc:mysql://localhost:3306/hospital" />
+		<property name="jdbcUrl" value="jdbc:mysql://localhost:3306/hospital?characterEncoding=utf-8" />
 		<!-- 指定连接数据库用户名 -->
 		<property name="user" value="root" />
 		<!-- 指定连接数据库密码 -->
@@ -44,8 +44,11 @@
 				<prop key="hibernate.show_sql">true</prop>
 				<prop key="hibernate.format_sql">true</prop>
 				<prop key="hibernate.jdbc.batch_size">20</prop>
+				<prop key="hibernate.connection.useUnicode">true</prop>
+				<prop key="hibernate.connection.characterEncoding">utf-8</prop> 
 			</props>
 		</property>
+		
 	</bean>
 	<!-- Dao -->
 	<bean id="userDao" class="dao.UserDao">
@@ -71,18 +74,11 @@
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
 	<!-- service -->
-	<bean id="userService" class="service.UserService">
-		<property name="userDao" ref="userDao"></property>
-	</bean>
+	
 	<bean id="doctorService" class="service.DoctorService">
 		<property name="doctorDao" ref="doctorDao"></property>
 	</bean>
-	<bean id="departmentService" class="service.DepartmentService">
-		<property name="departmentDao" ref="departmentDao"></property>
-	</bean>
-	<bean id="hospitalService" class="service.HospitalService">
-		<property name="hospitalDao" ref="hospitalDao"></property>
-	</bean>
+	
 	<bean id="registrationService" class="service.RegistrationService">
 		<property name="registrationDao" ref="registrationDao"></property>
 	</bean>
@@ -135,18 +131,14 @@
 	<bean id="hospital" class="java.lang.String"></bean>
 	<bean id="department" class="java.lang.String"></bean>
 	<bean id="tel" class="java.lang.String"></bean>
-	<bean id="doctorAction" class="action.DoctorAction">
-		<property name="doctorInfo">
-			<map>
-				<entry key="doctorName" value-ref="doctorName"></entry>
-				<entry key="sex" value-ref="sex"></entry>
-				<!-- age初始值 -->
-				<entry key="age" value="1"></entry>
-				<entry key="hospital" value-ref="hospital"></entry>
-				<entry key="department" value-ref="department"></entry>
-				<entry key="tel" value-ref="tel"></entry>
-			</map>
-		</property>
+	<!-- action -->
+	
+
+	<bean id="getPeriods" class="action.HandleAction">
+		<property name="doctorService" ref="doctorService"></property>
+		<property name="registrationService" ref="registrationService"></property>
+		<property name="scheduleService" ref="scheduleService"></property>
 	</bean>
 
+	
 </beans>

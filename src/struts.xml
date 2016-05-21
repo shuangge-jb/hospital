@@ -6,15 +6,15 @@
 	<include file="struts-default.xml" />
 	<constant name="struts.i18n.encoding" value="UTF-8" />
 	<constant name="struts.custom.i18n.resources" value="globalMessages" />
-	<package name="doctorAjax" extends="json-default" namespace="/">
-
-		<global-results>
-			<result name="doctorPage">/doctorInfo.jsp</result>
-		</global-results>
-		<action name="doctorAction" class="action.DoctorAction" method="isNameExisted">
-			<result name="success" type="json">
-				<param name="root">isExisted</param>
-			</result>
+	<package name="default" extends="json-default">
+		<action name="getPeriods" class="action.HandleAction" method="getPeriods">
+			<result name="success" type="json"></result>
 		</action>
+
+	</package>
+	<package name="submit" extends="struts-default">
+
+
+
 	</package>
 </struts>   

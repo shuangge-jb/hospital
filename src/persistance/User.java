@@ -22,7 +22,6 @@ public class User  implements java.io.Serializable {
      private String tel;
      private String identificationId;
      private Date birthday;
-     private Boolean isdoctor;
 
 
     // Constructors
@@ -33,7 +32,7 @@ public class User  implements java.io.Serializable {
 
     
     /** full constructor */
-    public User(String userName, String userPwd, String userRealname, String sex, String address, String tel, String identificationId, Date birthday, Boolean isdoctor) {
+    public User(String userName, String userPwd, String userRealname, String sex, String address, String tel, String identificationId, Date birthday) {
         this.userName = userName;
         this.userPwd = userPwd;
         this.userRealname = userRealname;
@@ -42,7 +41,6 @@ public class User  implements java.io.Serializable {
         this.tel = tel;
         this.identificationId = identificationId;
         this.birthday = birthday;
-        this.isdoctor = isdoctor;
     }
 
    
@@ -118,14 +116,6 @@ public class User  implements java.io.Serializable {
     
     public void setBirthday(Date birthday) {
         this.birthday = birthday;
-    }
-
-    public Boolean getIsdoctor() {
-        return this.isdoctor;
-    }
-    
-    public void setIsdoctor(Boolean isdoctor) {
-        this.isdoctor = isdoctor;
     }
    
 

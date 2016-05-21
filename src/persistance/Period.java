@@ -3,6 +3,8 @@ package persistance;
 // default package
 
 import java.sql.Time;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
@@ -30,6 +32,47 @@ public class Period implements java.io.Serializable {
 
 	/** default constructor */
 	public Period() {
+
+	}
+
+	/** minimal constructor */
+	public Period(Integer id,String date, Time beginTime, Time endTime) {
+		this.id=id;
+		SimpleDateFormat sdfDate = new SimpleDateFormat("yyyy-MM-dd");
+
+		try {
+			this.date = sdfDate.parse(date);
+
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		this.beginTime = beginTime;
+		this.endTime = endTime;
+	}
+
+	/** minimal constructor */
+	public Period(String date, String beginTime, String endTime) {
+		SimpleDateFormat sdfDate = new SimpleDateFormat("yyyy-MM-dd");
+		SimpleDateFormat sdfTime = new SimpleDateFormat("HH:mm:ss");
+
+		try {
+			this.date = sdfDate.parse(date);
+			this.beginTime = new Time(sdfTime.parse(beginTime).getTime());
+			this.endTime = new Time(sdfTime.parse(endTime).getTime());
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
+
+	/** minimal constructor */
+	public Period(Integer id, Date date, Time beginTime, Time endTime) {
+		this.id = id;
+		this.date = date;
+		this.beginTime = beginTime;
+		this.endTime = endTime;
 	}
 
 	/** minimal constructor */

@@ -4,14 +4,19 @@
 $(document).ready(function() {
 	$.ajax({
 		type : "post",
-		url : "registrationAction.action",
+		url : "getPeriods.action",
+		contentType: 'application/json; charset=utf-8', 
 		data : {
-			userName : value
+			doctorName : "爽哥",
 		},
 		dataType : "json",// 设置需要返回的数据类型
 		success : function(data) {
+			for(var i in data){
+				var period=data[i];
+				alert("success:"+period);
+				$("#period").append("<option value=\""+period+"\">"+period+"</option>");
+			}
 			
-			$("#title").after();
 		},
 		error:function(xhr){
 			alert("error:"+xhr.responseText);
