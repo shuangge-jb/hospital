@@ -10,7 +10,10 @@
 		<action name="getPeriods" class="action.HandleAction" method="getPeriods">
 			<result name="success" type="json"></result>
 		</action>
-
+		<action name="getRegistrations" class="action.HandleAction"
+			method="getRegistrations">
+			<result name="success" type="json"></result>
+		</action>
 	</package>
 	<package name="submit" extends="struts-default">
 

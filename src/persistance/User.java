@@ -2,6 +2,8 @@ package persistance;
 // default package
 
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 
 /**
@@ -22,6 +24,8 @@ public class User  implements java.io.Serializable {
      private String tel;
      private String identificationId;
      private Date birthday;
+     private Integer balance;
+     private Set registrations = new HashSet(0);
 
 
     // Constructors
@@ -30,9 +34,8 @@ public class User  implements java.io.Serializable {
     public User() {
     }
 
-    
-    /** full constructor */
-    public User(String userName, String userPwd, String userRealname, String sex, String address, String tel, String identificationId, Date birthday) {
+	/** minimal constructor */
+    public User(String userName, String userPwd, String userRealname, String sex, String address, String tel, String identificationId, Date birthday, Integer balance) {
         this.userName = userName;
         this.userPwd = userPwd;
         this.userRealname = userRealname;
@@ -41,6 +44,21 @@ public class User  implements java.io.Serializable {
         this.tel = tel;
         this.identificationId = identificationId;
         this.birthday = birthday;
+        this.balance = balance;
+    }
+    
+    /** full constructor */
+    public User(String userName, String userPwd, String userRealname, String sex, String address, String tel, String identificationId, Date birthday, Integer balance, Set registrations) {
+        this.userName = userName;
+        this.userPwd = userPwd;
+        this.userRealname = userRealname;
+        this.sex = sex;
+        this.address = address;
+        this.tel = tel;
+        this.identificationId = identificationId;
+        this.birthday = birthday;
+        this.balance = balance;
+        this.registrations = registrations;
     }
 
    
@@ -116,6 +134,22 @@ public class User  implements java.io.Serializable {
     
     public void setBirthday(Date birthday) {
         this.birthday = birthday;
+    }
+
+    public Integer getBalance() {
+        return this.balance;
+    }
+    
+    public void setBalance(Integer balance) {
+        this.balance = balance;
+    }
+
+    public Set getRegistrations() {
+        return this.registrations;
+    }
+    
+    public void setRegistrations(Set registrations) {
+        this.registrations = registrations;
     }
    
 

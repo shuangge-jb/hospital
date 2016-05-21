@@ -8,7 +8,8 @@
 		<!-- 指定连接数据库驱动 -->
 		<property name="driverClass" value="com.mysql.jdbc.Driver" />
 		<!-- 指定连接数据库url -->
-		<property name="jdbcUrl" value="jdbc:mysql://localhost:3306/hospital?characterEncoding=utf-8" />
+		<property name="jdbcUrl"
+			value="jdbc:mysql://localhost:3306/hospital?characterEncoding=utf-8" />
 		<!-- 指定连接数据库用户名 -->
 		<property name="user" value="root" />
 		<!-- 指定连接数据库密码 -->
@@ -45,10 +46,10 @@
 				<prop key="hibernate.format_sql">true</prop>
 				<prop key="hibernate.jdbc.batch_size">20</prop>
 				<prop key="hibernate.connection.useUnicode">true</prop>
-				<prop key="hibernate.connection.characterEncoding">utf-8</prop> 
+				<prop key="hibernate.connection.characterEncoding">utf-8</prop>
 			</props>
 		</property>
-		
+
 	</bean>
 	<!-- Dao -->
 	<bean id="userDao" class="dao.UserDao">
@@ -74,11 +75,11 @@
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
 	<!-- service -->
-	
+
 	<bean id="doctorService" class="service.DoctorService">
 		<property name="doctorDao" ref="doctorDao"></property>
 	</bean>
-	
+
 	<bean id="registrationService" class="service.RegistrationService">
 		<property name="registrationDao" ref="registrationDao"></property>
 	</bean>
@@ -132,13 +133,19 @@
 	<bean id="department" class="java.lang.String"></bean>
 	<bean id="tel" class="java.lang.String"></bean>
 	<!-- action -->
-	
+
 
 	<bean id="getPeriods" class="action.HandleAction">
-		<property name="doctorService" ref="doctorService"></property>
+
+		
 		<property name="registrationService" ref="registrationService"></property>
 		<property name="scheduleService" ref="scheduleService"></property>
 	</bean>
 
-	
+	<bean id="getRegistrations" class="action.HandleAction">
+		<property name="registrationService" ref="registrationService"></property>
+		<property name="scheduleService" ref="scheduleService"></property>
+	</bean>
+
+
 </beans>

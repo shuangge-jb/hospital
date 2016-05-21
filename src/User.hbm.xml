@@ -34,5 +34,14 @@
         <property name="birthday" type="java.util.Date">
             <column name="birthday" length="10" not-null="true" />
         </property>
+        <property name="balance" type="java.lang.Integer">
+            <column name="balance" not-null="true" />
+        </property>
+        <set name="registrations" inverse="true">
+            <key>
+                <column name="user_id" not-null="true" />
+            </key>
+            <one-to-many class="Registration" />
+        </set>
     </class>
 </hibernate-mapping>

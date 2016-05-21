@@ -1,7 +1,7 @@
 package persistance;
 // default package
 
-import persistance.Period;
+import java.sql.Timestamp;
 
 
 /**
@@ -13,14 +13,14 @@ public class Registration  implements java.io.Serializable {
 
     // Fields    
 
-     /**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-	private Integer id;
+     private Integer id;
+     private User user;
      private Doctor doctor;
      private Department department;
      private Period period;
+     private Hospital hospital;
+     private Timestamp submitTime;
+     private String state;
 
 
     // Constructors
@@ -31,10 +31,14 @@ public class Registration  implements java.io.Serializable {
 
     
     /** full constructor */
-    public Registration(Doctor doctor, Department department, Period period) {
+    public Registration(User user, Doctor doctor, Department department, Period period, Hospital hospital, Timestamp submitTime, String state) {
+        this.user = user;
         this.doctor = doctor;
         this.department = department;
         this.period = period;
+        this.hospital = hospital;
+        this.submitTime = submitTime;
+        this.state = state;
     }
 
    
@@ -46,6 +50,14 @@ public class Registration  implements java.io.Serializable {
     
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public User getUser() {
+        return this.user;
+    }
+    
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public Doctor getDoctor() {
@@ -70,6 +82,30 @@ public class Registration  implements java.io.Serializable {
     
     public void setPeriod(Period period) {
         this.period = period;
+    }
+
+    public Hospital getHospital() {
+        return this.hospital;
+    }
+    
+    public void setHospital(Hospital hospital) {
+        this.hospital = hospital;
+    }
+
+    public Timestamp getSubmitTime() {
+        return this.submitTime;
+    }
+    
+    public void setSubmitTime(Timestamp submitTime) {
+        this.submitTime = submitTime;
+    }
+
+    public String getState() {
+        return this.state;
+    }
+    
+    public void setState(String state) {
+        this.state = state;
     }
    
 

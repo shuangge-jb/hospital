@@ -5,6 +5,7 @@ import java.util.List;
 
 import net.sf.json.JSONArray;
 import persistance.Period;
+import persistance.Registration;
 import dao.ScheduleDao;
 
 public class ScheduleService {
@@ -35,4 +36,6 @@ public class ScheduleService {
 		}
 		return jsonArray;
 	}
+
+	
 }
