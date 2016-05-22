@@ -16,13 +16,31 @@
         <property name="address" type="java.lang.String">
             <column name="address" length="65535" not-null="true" />
         </property>
+        <set name="departments" inverse="true">
+            <key>
+                <column name="hospital_id" not-null="true" />
+            </key>
+            <one-to-many class="persistance.Department" />
+        </set>
         <set name="doctors" inverse="true">
             <key>
                 <column name="hospital_id" not-null="true" />
             </key>
             <one-to-many class="persistance.Doctor" />
         </set>
-        <set name="departments" inverse="true">
+        <set name="registrations" inverse="true">
+            <key>
+                <column name="hospital_id" not-null="true" />
+            </key>
+            <one-to-many class="persistance.Registration" />
+        </set>
+        <set name="doctors_1" inverse="true">
+            <key>
+                <column name="hospital_id" not-null="true" />
+            </key>
+            <one-to-many class="persistance.Doctor" />
+        </set>
+        <set name="departments_1" inverse="true">
             <key>
                 <column name="hospital_id" not-null="true" />
             </key>

@@ -24,11 +24,12 @@ public class ScheduleDaoTest {
 				.buildSessionFactory();
 		String sql = null;
 		sql = "select p.* from doctor d join schedule s join period p "
-				+ "where  s.doctor_id=d.id and s.period_id=p.id and d.id= :doctorId";
+				+ "where  s.doctor_id=d.id and s.period_id=p.id and d.name= :doctorName";
 		Session session = sessionFactory.openSession();
+		@SuppressWarnings("unchecked")
 		List<Period> list = session
 				.createSQLQuery(sql).addEntity("p", Period.class)
-				.setString("doctorId", "1").list();
+				.setString("doctorName", "Ë¬¸ç").list();
 		System.out.println("list size: " + list.size());
 		List<String> periodNames = new ArrayList<String>(list.size());
 		if (list.size() > 0) {

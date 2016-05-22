@@ -10,19 +10,19 @@
             <column name="id" />
             <generator class="identity" />
         </id>
-        <many-to-one name="user" class="User" fetch="select">
+        <many-to-one name="user" class="persistance.User" fetch="select">
             <column name="user_id" not-null="true" />
         </many-to-one>
-        <many-to-one name="doctor" class="Doctor" fetch="select">
+        <many-to-one name="doctor" class="persistance.Doctor" fetch="select">
             <column name="doctor_id" not-null="true" />
         </many-to-one>
-        <many-to-one name="department" class="Department" fetch="select">
+        <many-to-one name="department" class="persistance.Department" fetch="select">
             <column name="department_id" not-null="true" />
         </many-to-one>
-        <many-to-one name="period" class="Period" fetch="select">
+        <many-to-one name="period" class="persistance.Period" fetch="select">
             <column name="period_id" not-null="true" />
         </many-to-one>
-        <many-to-one name="hospital" class="Hospital" fetch="select">
+        <many-to-one name="hospital" class="persistance.Hospital" fetch="select">
             <column name="hospital_id" not-null="true" />
         </many-to-one>
         <property name="submitTime" type="java.sql.Timestamp">

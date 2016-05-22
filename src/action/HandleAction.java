@@ -21,11 +21,8 @@ public class HandleAction extends ActionSupport {
 	 */
 	private static final long serialVersionUID = 1L;
 
-	
 	private RegistrationService registrationService;
 	private ScheduleService scheduleService;
-
-	
 
 	/**
 	 * @param registrationService
@@ -50,28 +47,61 @@ public class HandleAction extends ActionSupport {
 	 */
 	public String getPeriods() {
 		// String doctorName="爽哥";
-		JSONArray jsonArray = scheduleService.findPeriods(getDoctorName());
+		JSONArray jsonArray = scheduleService.findPeriods(getValue("doctorName"));
 		return save(jsonArray);
 	}
 
+	/**
+	 * 从数据库获取挂号信息
+	 * 
+	 * @return
+	 */
 	public String getRegistrations() {
-		JSONArray jsonArray = registrationService
-				.findRegistrations(getDoctorName());
+		String doctorName = getValue("doctorName");
+		String receivePeriods = getValue("periods");
+		JSONArray jsonArray = null;
+		if (receivePeriods != null) {
+			jsonArray = registrationService.findRegistrations(doctorName,
+					receivePeriods);
+		}
 		return save(jsonArray);
 	}
 
-	private String getDoctorName() {
-		HttpServletRequest request = ServletActionContext.getRequest();
-		// 从session获得当前登录doctor信息
-		return request.getParameter("doctorName");
+	/**
+	 * 标记用户已看病，更改数据库
+	 * 
+	 * @return
+	 */
+	public String mark() {
+		String userId = getValue("userId");
+		save(JSONArray.fromObject(registrationService.mark(userId)));
+		return SUCCESS;
 	}
 
+	/**
+	 * 获取请求的数据
+	 * 
+	 * @param attribute
+	 * @return
+	 */
+	private String getValue(String attribute) {
+		HttpServletRequest request = ServletActionContext.getRequest();
+		System.out.println(request.getParameter(attribute));
+		return request.getParameter(attribute);
+	}
+
+	/**
+	 * 将数据传到前端
+	 * 
+	 * @param jsonArray
+	 * @return
+	 */
 	private String save(JSONArray jsonArray) {
 		HttpServletResponse response = ServletActionContext.getResponse();
 		response.setCharacterEncoding("UTF-8");
 		try {
 			PrintWriter writer = response.getWriter();
-			writer.print(jsonArray.toString());
+			writer.print(jsonArray);
 			writer.close();// 一定要关闭，否则会抛出异常
 		} catch (IOException e) {
 

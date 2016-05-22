@@ -14,15 +14,14 @@ public class Hospital  implements java.io.Serializable {
 
     // Fields    
 
-     /**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-	private Integer id;
+     private Integer id;
      private String name;
      private String address;
-     private Set<Doctor> doctors = new HashSet<Doctor>(0);
-     private Set<Department> departments = new HashSet<Department>(0);
+     private Set departments = new HashSet(0);
+     private Set doctors = new HashSet(0);
+     private Set registrations = new HashSet(0);
+     private Set doctors_1 = new HashSet(0);
+     private Set departments_1 = new HashSet(0);
 
 
     // Constructors
@@ -38,11 +37,14 @@ public class Hospital  implements java.io.Serializable {
     }
     
     /** full constructor */
-    public Hospital(String name, String address, Set<Doctor> doctors, Set<Department> departments) {
+    public Hospital(String name, String address, Set departments, Set doctors, Set registrations, Set doctors_1, Set departments_1) {
         this.name = name;
         this.address = address;
-        this.doctors = doctors;
         this.departments = departments;
+        this.doctors = doctors;
+        this.registrations = registrations;
+        this.doctors_1 = doctors_1;
+        this.departments_1 = departments_1;
     }
 
    
@@ -72,20 +74,44 @@ public class Hospital  implements java.io.Serializable {
         this.address = address;
     }
 
-    public Set<Doctor> getDoctors() {
-        return this.doctors;
-    }
-    
-    public void setDoctors(Set<Doctor> doctors) {
-        this.doctors = doctors;
-    }
-
-    public Set<Department> getDepartments() {
+    public Set getDepartments() {
         return this.departments;
     }
     
-    public void setDepartments(Set<Department> departments) {
+    public void setDepartments(Set departments) {
         this.departments = departments;
+    }
+
+    public Set getDoctors() {
+        return this.doctors;
+    }
+    
+    public void setDoctors(Set doctors) {
+        this.doctors = doctors;
+    }
+
+    public Set getRegistrations() {
+        return this.registrations;
+    }
+    
+    public void setRegistrations(Set registrations) {
+        this.registrations = registrations;
+    }
+
+    public Set getDoctors_1() {
+        return this.doctors_1;
+    }
+    
+    public void setDoctors_1(Set doctors_1) {
+        this.doctors_1 = doctors_1;
+    }
+
+    public Set getDepartments_1() {
+        return this.departments_1;
+    }
+    
+    public void setDepartments_1(Set departments_1) {
+        this.departments_1 = departments_1;
     }
    
 

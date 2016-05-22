@@ -13,7 +13,11 @@ public class Registration  implements java.io.Serializable {
 
     // Fields    
 
-     private Integer id;
+     /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private Integer id;
      private User user;
      private Doctor doctor;
      private Department department;

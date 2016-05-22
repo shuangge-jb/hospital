@@ -41,7 +41,7 @@
             <key>
                 <column name="user_id" not-null="true" />
             </key>
-            <one-to-many class="Registration" />
+            <one-to-many class="persistance.Registration" />
         </set>
     </class>
 </hibernate-mapping>

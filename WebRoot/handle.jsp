@@ -22,7 +22,7 @@
 	<div>
 		<font>请选择出诊时间段：</font>
 		<p></p>
-		<select id="period"></select>
+		<select id="period" onchange="loadInfo()"></select>
 	</div>
 
 	<table id="handlePatient">
