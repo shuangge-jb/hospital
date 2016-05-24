@@ -6,8 +6,11 @@
 <title>处理就诊单</title>
 
 </head>
+<link rel="stylesheet" href="css/bootstrap.min.css">
 <script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
 <script type="text/javascript" src="js/handle.js"></script>
+
 <style type="text/css">
 .onecenter {
 	text-align: center;
@@ -25,12 +28,12 @@
 		<select id="period" onchange="loadInfo()"></select>
 	</div>
 
-	<table id="handlePatient">
+	<table id="handlePatient"  class="table table-striped table table-bordered">
 		<tr id="title">
-			<td class='onecenter'><font>就诊单号</font></td>
-			<td class='onecenter'><font>姓名</font></td>
-			<td class='onecenter'><font>时间段</font></td>
-			<td class='onecenter'><font>操作</font></td>
+			<td><font>就诊单号</font></td>
+			<td><font>姓名</font></td>
+			<td><font>时间段</font></td>
+			<td><font>操作</font></td>
 		</tr>
 
 	</table>

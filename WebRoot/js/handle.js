@@ -44,19 +44,19 @@ function loadInfo() {
 
 						$("#handlePatient")
 								.append(
-										"<tr id=\"title\">"
-												+ "<td class='onecenter registration'><font>"
+										"<tr id=\"title\"  class=\"btn-group\" data-toggle=\"buttons\">"
+												+ "<td class=\"registration\"><font>"
 												+ registration.id
 												+ "</font></td>"
-												+ "<td class='onecenter registration'><font>"
+												+ "<td class=\"registration\"><font>"
 												+ registration.userName
 												+ "</font></td>"
-												+ "<td class='onecenter registration'><font>"
+												+ "<td class=\"registration\"><font>"
 												+ registration.beginTime
 												+ "</font></td>"
-												+ "<td class='onecenter registration'>"
-												+ "<input type=\"checkbox\" name=\"check\" class=\"handled\" " +
-														"onclick=\"selectThis(this)\"></td>"
+												+ "<td class=\"registration\">"
+												+ "<button  name=\"check\" class='handled btn btn-primary' " +
+														"onclick=\"selectThis(this)\">就诊</button></td>"
 												+ "</tr>");
 					}
 				},

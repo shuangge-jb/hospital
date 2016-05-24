@@ -1,29 +1,29 @@
-<%@ page contentType="text/html; charset=GBK"%>
-<%@ taglib prefix="s" uri="/struts-tags"%>
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<!DOCTYPE HTML>
 <html>
-	<style type="text/css">
-body {
-	background-color: #758fde;
-}
-a { color: #000000; font-size: 12pt; text-decoration: none}
-</style>
+<head>
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="cache-control" content="no-cache">
+<meta http-equiv="expires" content="0">
+<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+<meta http-equiv="description" content="This is my page">
+</head>
+<link href="css/bootstrap.min.css">
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/main.js"></script>
 <body>
-<p><s:property value="%{getText('mainpage')}" /></p>
-
-<center>
-<table width="60%" border="0">
- 
-  <tr>
-    <td height="98" >
-    <a href="worktime.jsp">Ñ¡Ôñ³öÕïÊ±¼ä</a>
-    </td>
-    </tr>
-    <tr>
-    <td height="98" >
-    <a href="handle.jsp">´¦Àí¾ÍÕïµ¥</a>
-      </td>
-  </tr>
-</table>
-</center>
+	<div class="main">
+		<div id="tab">
+			<ul class="tab_menu nav nav-pills" >
+				<button class="selected btn btn-default" onclick="clickSelectTime()">é€‰æ‹©å‡ºè¯Šæ—¶é—´</button>
+				<button class="btn btn-default" onclick="clickHandle()">å¤„ç†å°±è¯Šå•</button>
+			</ul>
+		</div>
+		<div class="tab_box">
+			<div id="selectTime"><%@ include file="selectTime.jsp"%></div>
+			<div  id="handle"><%@ include file="handle.jsp"%></div>
+		</div>
+		</table>
 </body>
 </html>
