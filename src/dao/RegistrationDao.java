@@ -27,7 +27,7 @@ public class RegistrationDao extends HibernateDaoSupport {
 	 * @return
 	 */
 	public List<Map<String, String>> findRegistrations(String doctorName,
-			String date, String firstPeriodBegin, String lastPeriodEnd) {
+			String date, String firstPeriodBegin, String lastPeriodBegin) {
 		String sql = null;
 		sql = " select r.id id,u.user_name userName ,p.begin_time beginTime"
 				+ " from registration r join doctor do join department de join user u join period p "
@@ -43,7 +43,7 @@ public class RegistrationDao extends HibernateDaoSupport {
 				.setResultTransformer(Transformers.ALIAS_TO_ENTITY_MAP)
 				.setString("doctorName", "Ë¬¸ç").setString("date", date)
 				.setString("firstPeriodBegin", firstPeriodBegin)
-				.setString("lastPeriodBegin", lastPeriodEnd);
+				.setString("lastPeriodBegin", lastPeriodBegin);
 
 		return query.list();
 	}

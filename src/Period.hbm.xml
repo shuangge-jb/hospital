@@ -25,7 +25,25 @@
             </key>
             <one-to-many class="persistance.Schedule" />
         </set>
+        <set name="workTimes" inverse="true">
+            <key>
+                <column name="period_id" not-null="true" />
+            </key>
+            <one-to-many class="persistance.WorkTime" />
+        </set>
         <set name="registrations" inverse="true">
+            <key>
+                <column name="period_id" not-null="true" />
+            </key>
+            <one-to-many class="persistance.Registration" />
+        </set>
+        <set name="schedules_1" inverse="true">
+            <key>
+                <column name="period_id" not-null="true" />
+            </key>
+            <one-to-many class="persistance.Schedule" />
+        </set>
+        <set name="registrations_1" inverse="true">
             <key>
                 <column name="period_id" not-null="true" />
             </key>

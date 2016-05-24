@@ -11,4 +11,5 @@
 	<table name="schedule" catalog="hospital" class="Schedule"></table>
 	<table name="period" catalog="hospital" class="Period"></table>
 	<table name="user" catalog="hospital" class="User"></table>
+	<table name="worktime" catalog="hospital" class="WorkTime"></table>
 </hibernate-reverse-engineering>

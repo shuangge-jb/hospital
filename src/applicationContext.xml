@@ -31,6 +31,7 @@
 				<value>Period.hbm.xml</value>
 				<value>Registration.hbm.xml</value>
 				<value>Schedule.hbm.xml</value>
+				<value>WorkTime.hbm.xml</value>
 			</list>
 		</property>
 		<property name="hibernateProperties">
@@ -74,6 +75,9 @@
 	<bean id="registrationDao" class="dao.RegistrationDao">
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
+	<bean id="workTimeDao" class="dao.WorkTimeDao">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
 	<!-- service -->
 
 	<bean id="doctorService" class="service.DoctorService">
@@ -88,6 +92,12 @@
 	</bean>
 	<bean id="scheduleService" class="service.ScheduleService">
 		<property name="scheduleDao" ref="scheduleDao"></property>
+		
+	</bean>
+	<bean id="workTimeService" class="service.WorkTimeService">
+		<property name="workTimeDao" ref="workTimeDao"></property>
+		<property name="doctorDao" ref="doctorDao"></property>
+		<property name="periodDao" ref="periodDao"></property>
 	</bean>
 	<!-- 事务管理器 -->
 	<bean id="transactionManager"
@@ -118,6 +128,7 @@
 				<value>periodService</value>
 				<value>registrationService</value>
 				<value>scheduleService</value>
+				<value>workTimeService</value>
 			</list>
 		</property>
 		<!-- 调用事务管理拦截器 -->
@@ -150,5 +161,9 @@
 	<bean id="mark" class="action.HandleAction">
 		<property name="registrationService" ref="registrationService"></property>
 		<property name="scheduleService" ref="scheduleService"></property>
+	</bean>
+	
+	<bean id="insert" class="action.SelectTimeAction">
+		<property name="workTimeService" ref="workTimeService"></property>
 	</bean>
 </beans>

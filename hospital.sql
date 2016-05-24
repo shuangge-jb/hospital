@@ -60,3 +60,13 @@ select
         
 use hospital;
 update registration set state="已预约" where user_id=1;     
+
+use hospital;
+create table worktime(doctor_id int,period_id int,primary key(doctor_id,period_id),
+foreign key(doctor_id)references doctor(id),foreign key(period_id)references period(id));
+
+use hospital;
+select doctor_id,period_id
+from worktime w join period p on w.period_id=p.id
+ where w.doctor_id=1 and p.date="2016-05-04" 
+ and p.begin_time>="09:00:00" and p.end_time<="11:00:00";

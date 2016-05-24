@@ -4,15 +4,15 @@ package persistance;
 
 
 /**
- * Schedule entity. @author MyEclipse Persistence Tools
+ * WorkTime entity. @author MyEclipse Persistence Tools
  */
 
-public class Schedule  implements java.io.Serializable {
+public class WorkTime  implements java.io.Serializable {
 
 
     // Fields    
 
-     private ScheduleId id;
+     private WorkTimeId id;
      private Doctor doctor;
      private Period period;
 
@@ -20,12 +20,12 @@ public class Schedule  implements java.io.Serializable {
     // Constructors
 
     /** default constructor */
-    public Schedule() {
+    public WorkTime() {
     }
 
     
     /** full constructor */
-    public Schedule(ScheduleId id, Doctor doctor, Period period) {
+    public WorkTime(WorkTimeId id, Doctor doctor, Period period) {
         this.id = id;
         this.doctor = doctor;
         this.period = period;
@@ -34,11 +34,11 @@ public class Schedule  implements java.io.Serializable {
    
     // Property accessors
 
-    public ScheduleId getId() {
+    public WorkTimeId getId() {
         return this.id;
     }
     
-    public void setId(ScheduleId id) {
+    public void setId(WorkTimeId id) {
         this.id = id;
     }
 

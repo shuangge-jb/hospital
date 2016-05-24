@@ -4,10 +4,10 @@ package persistance;
 
 
 /**
- * ScheduleId entity. @author MyEclipse Persistence Tools
+ * WorkTimeId entity. @author MyEclipse Persistence Tools
  */
 
-public class ScheduleId  implements java.io.Serializable {
+public class WorkTimeId  implements java.io.Serializable {
 
 
     // Fields    
@@ -19,12 +19,12 @@ public class ScheduleId  implements java.io.Serializable {
     // Constructors
 
     /** default constructor */
-    public ScheduleId() {
+    public WorkTimeId() {
     }
 
     
     /** full constructor */
-    public ScheduleId(Integer doctorId, Integer periodId) {
+    public WorkTimeId(Integer doctorId, Integer periodId) {
         this.doctorId = doctorId;
         this.periodId = periodId;
     }
@@ -54,8 +54,8 @@ public class ScheduleId  implements java.io.Serializable {
    public boolean equals(Object other) {
          if ( (this == other ) ) return true;
 		 if ( (other == null ) ) return false;
-		 if ( !(other instanceof ScheduleId) ) return false;
-		 ScheduleId castOther = ( ScheduleId ) other; 
+		 if ( !(other instanceof WorkTimeId) ) return false;
+		 WorkTimeId castOther = ( WorkTimeId ) other; 
          
 		 return ( (this.getDoctorId()==castOther.getDoctorId()) || ( this.getDoctorId()!=null && castOther.getDoctorId()!=null && this.getDoctorId().equals(castOther.getDoctorId()) ) )
  && ( (this.getPeriodId()==castOther.getPeriodId()) || ( this.getPeriodId()!=null && castOther.getPeriodId()!=null && this.getPeriodId().equals(castOther.getPeriodId()) ) );

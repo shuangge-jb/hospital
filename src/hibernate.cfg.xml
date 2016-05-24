@@ -25,6 +25,7 @@
 		<mapping resource="./Schedule.hbm.xml" />
 		<mapping resource="./Period.hbm.xml" />
 		<mapping resource="./User.hbm.xml" />
+		<mapping resource="./WorkTime.hbm.xml" />
 
 	</session-factory>
 

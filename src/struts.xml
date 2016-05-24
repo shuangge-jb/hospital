@@ -7,6 +7,7 @@
 	<constant name="struts.i18n.encoding" value="UTF-8" />
 	<constant name="struts.custom.i18n.resources" value="globalMessages" />
 	<package name="default" extends="json-default">
+		<!-- HandleAction -->
 		<action name="getPeriods" class="action.HandleAction" method="getPeriods">
 			<result name="success" type="json"></result>
 		</action>
@@ -16,6 +17,12 @@
 		</action>
 		<action name="mark" class="action.HandleAction" method="mark">
 			<result name="success" type="json"></result>
+		</action>
+		<!-- SelectTimeAction -->
+		<action name="insert" class="action.SelectTimeAction" method="insert">
+			<result name="success" type="json">
+			<param name="excludeProperties">selectTimeService</param>  
+			</result>
 		</action>
 	</package>
 	<package name="submit" extends="struts-default">

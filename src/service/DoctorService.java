@@ -5,14 +5,16 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-
-
-
+import persistance.Doctor;
 import persistance.User;
+import dao.DepartmentDao;
 import dao.DoctorDao;
+import dao.HospitalDao;
 
 public class DoctorService {
 	private DoctorDao doctorDao;
+	private DepartmentDao departmentDao;
+	private HospitalDao hospitalDao;
 
 	/**
 	 * @param doctorDao
@@ -21,24 +23,45 @@ public class DoctorService {
 	public void setDoctorDao(DoctorDao doctorDao) {
 		this.doctorDao = doctorDao;
 	}
-	/**
-	 * 判断医生是否存在
-	 * @param userName
-	 * @return
-	 */
-		public boolean isExisted(String userName) {
-			List<User> users=doctorDao.findAll();
-			Set<String>userNames=new HashSet<String>();
-			for(User item:users){
-				userNames.add(item.getUserName());
-			}
-			return userNames.contains(userName);
 
-		}
-		/**
-		 * 保存注册信息进数据库
-		 */
-		public void save(Map<String,String>map){
-			doctorDao.save(map);
-		}
+	/**
+	 * @return the departmentDao
+	 */
+	public DepartmentDao getDepartmentDao() {
+		return departmentDao;
+	}
+
+	/**
+	 * @param departmentDao
+	 *            the departmentDao to set
+	 */
+	public void setDepartmentDao(DepartmentDao departmentDao) {
+		this.departmentDao = departmentDao;
+	}
+
+	/**
+	 * @return the hospitalDao
+	 */
+	public HospitalDao getHospitalDao() {
+		return hospitalDao;
+	}
+
+	/**
+	 * @param hospitalDao
+	 *            the hospitalDao to set
+	 */
+	public void setHospitalDao(HospitalDao hospitalDao) {
+		this.hospitalDao = hospitalDao;
+	}
+
+	/**
+	 * @return the doctorDao
+	 */
+	public DoctorDao getDoctorDao() {
+		return doctorDao;
+	}
+
+	
+
+	
 }

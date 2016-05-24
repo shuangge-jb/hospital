@@ -1,145 +1,138 @@
 package persistance;
-
 // default package
 
 import java.sql.Time;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
+
 /**
- * Period entity. @author MyEclipse Persistence Tools Ê±¼ä¶Î±í
+ * Period entity. @author MyEclipse Persistence Tools
  */
 
-public class Period implements java.io.Serializable {
+public class Period  implements java.io.Serializable {
 
-	// Fields
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-	private Integer id;
-	private Date date;
-	private Time beginTime;
-	private Time endTime;
-	private Set<Schedule> schedules = new HashSet<Schedule>(0);
-	private Set<Registration> registrations = new HashSet<Registration>(0);
+    // Fields    
 
-	// Constructors
+     private Integer id;
+     private Date date;
+     private Time beginTime;
+     private Time endTime;
+     private Set schedules = new HashSet(0);
+     private Set workTimes = new HashSet(0);
+     private Set registrations = new HashSet(0);
+     private Set schedules_1 = new HashSet(0);
+     private Set registrations_1 = new HashSet(0);
 
-	/** default constructor */
-	public Period() {
 
-	}
+    // Constructors
 
-	/** minimal constructor */
-	public Period(Integer id,String date, Time beginTime, Time endTime) {
-		this.id=id;
-		SimpleDateFormat sdfDate = new SimpleDateFormat("yyyy-MM-dd");
-
-		try {
-			this.date = sdfDate.parse(date);
-
-		} catch (ParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		this.beginTime = beginTime;
-		this.endTime = endTime;
-	}
+    /** default constructor */
+    public Period() {
+    }
 
 	/** minimal constructor */
-	public Period(String date, String beginTime, String endTime) {
-		SimpleDateFormat sdfDate = new SimpleDateFormat("yyyy-MM-dd");
-		SimpleDateFormat sdfTime = new SimpleDateFormat("HH:mm:ss");
+    public Period(Date date, Time beginTime, Time endTime) {
+        this.date = date;
+        this.beginTime = beginTime;
+        this.endTime = endTime;
+    }
+    
+    /** full constructor */
+    public Period(Date date, Time beginTime, Time endTime, Set schedules, Set workTimes, Set registrations, Set schedules_1, Set registrations_1) {
+        this.date = date;
+        this.beginTime = beginTime;
+        this.endTime = endTime;
+        this.schedules = schedules;
+        this.workTimes = workTimes;
+        this.registrations = registrations;
+        this.schedules_1 = schedules_1;
+        this.registrations_1 = registrations_1;
+    }
 
-		try {
-			this.date = sdfDate.parse(date);
-			this.beginTime = new Time(sdfTime.parse(beginTime).getTime());
-			this.endTime = new Time(sdfTime.parse(endTime).getTime());
-		} catch (ParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+   
+    // Property accessors
 
-	}
+    public Integer getId() {
+        return this.id;
+    }
+    
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
-	/** minimal constructor */
-	public Period(Integer id, Date date, Time beginTime, Time endTime) {
-		this.id = id;
-		this.date = date;
-		this.beginTime = beginTime;
-		this.endTime = endTime;
-	}
+    public Date getDate() {
+        return this.date;
+    }
+    
+    public void setDate(Date date) {
+        this.date = date;
+    }
 
-	/** minimal constructor */
-	public Period(Date date, Time beginTime, Time endTime) {
-		this.date = date;
-		this.beginTime = beginTime;
-		this.endTime = endTime;
-	}
+    public Time getBeginTime() {
+        return this.beginTime;
+    }
+    
+    public void setBeginTime(Time beginTime) {
+        this.beginTime = beginTime;
+    }
 
-	/** full constructor */
-	public Period(Date date, Time beginTime, Time endTime,
-			Set<Schedule> schedules, Set<Registration> registrations) {
-		this.date = date;
-		this.beginTime = beginTime;
-		this.endTime = endTime;
-		this.schedules = schedules;
-		this.registrations = registrations;
-	}
+    public Time getEndTime() {
+        return this.endTime;
+    }
+    
+    public void setEndTime(Time endTime) {
+        this.endTime = endTime;
+    }
 
-	// Property accessors
+    public Set getSchedules() {
+        return this.schedules;
+    }
+    
+    public void setSchedules(Set schedules) {
+        this.schedules = schedules;
+    }
 
-	public Integer getId() {
-		return this.id;
-	}
+    public Set getWorkTimes() {
+        return this.workTimes;
+    }
+    
+    public void setWorkTimes(Set workTimes) {
+        this.workTimes = workTimes;
+    }
 
-	public void setId(Integer id) {
-		this.id = id;
-	}
+    public Set getRegistrations() {
+        return this.registrations;
+    }
+    
+    public void setRegistrations(Set registrations) {
+        this.registrations = registrations;
+    }
 
-	public Date getDate() {
-		return this.date;
-	}
+    public Set getSchedules_1() {
+        return this.schedules_1;
+    }
+    
+    public void setSchedules_1(Set schedules_1) {
+        this.schedules_1 = schedules_1;
+    }
 
-	public void setDate(Date date) {
-		this.date = date;
-	}
+    public Set getRegistrations_1() {
+        return this.registrations_1;
+    }
+    
+    public void setRegistrations_1(Set registrations_1) {
+        this.registrations_1 = registrations_1;
+    }
+   
 
-	public Time getBeginTime() {
-		return this.beginTime;
-	}
 
-	public void setBeginTime(Time beginTime) {
-		this.beginTime = beginTime;
-	}
 
-	public Time getEndTime() {
-		return this.endTime;
-	}
 
-	public void setEndTime(Time endTime) {
-		this.endTime = endTime;
-	}
 
-	public Set<Schedule> getSchedules() {
-		return this.schedules;
-	}
 
-	public void setSchedules(Set<Schedule> schedules) {
-		this.schedules = schedules;
-	}
 
-	public Set<Registration> getRegistrations() {
-		return this.registrations;
-	}
-
-	public void setRegistrations(Set<Registration> registrations) {
-		this.registrations = registrations;
-	}
 
 }
