@@ -13,17 +13,21 @@
 <script src="js/bootstrap.min.js"></script>
 <script src="js/main.js"></script>
 <body>
-	<div class="main">
-		<div id="tab">
-			<ul class="tab_menu nav nav-pills" >
-				<button class="selected btn btn-default" onclick="clickSelectTime()">选择出诊时间</button>
-				<button class="btn btn-default" onclick="clickHandle()">处理就诊单</button>
-			</ul>
-		</div>
-		<div class="tab_box">
-			<div id="selectTime"><%@ include file="selectTime.jsp"%></div>
-			<div  id="handle"><%@ include file="handle.jsp"%></div>
-		</div>
-		</table>
+	<nav class="navbar navbar-default" role="navigation">
+		<div class="main nav navbar-nav">
+			<div id="tab">
+				<ul class="tab_menu ">
+					<button class="selected btn btn-default navbar-btn" onclick="clickSelectTime()">选择出诊时间</button>
+					<button class="btn btn-default navbar-btn" onclick="clickHandle()">处理就诊单</button>
+				</ul>
+			</div>
+	</nav>
+	<div class="tab_box">
+		<div id="selectTime"><%@ include file="selectTime.jsp"%></div>
+		<div id="handle"><%@ include file="handle.jsp"%></div>
+	</div>
+	</table>
+	</div>
+
 </body>
 </html>

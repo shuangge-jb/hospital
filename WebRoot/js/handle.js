@@ -44,7 +44,7 @@ function loadInfo() {
 
 						$("#handlePatient")
 								.append(
-										"<tr id=\"title\"  class=\"btn-group\" data-toggle=\"buttons\">"
+										"<tr id=\"title\"  data-toggle=\"buttons\">"
 												+ "<td class=\"registration\"><font>"
 												+ registration.id
 												+ "</font></td>"
