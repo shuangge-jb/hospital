@@ -16,15 +16,13 @@ public class Period  implements java.io.Serializable {
 
     // Fields    
 
-     private Integer id;
+     private Integer periodId;
      private Date date;
      private Time beginTime;
      private Time endTime;
      private Set schedules = new HashSet(0);
      private Set workTimes = new HashSet(0);
      private Set registrations = new HashSet(0);
-     private Set schedules_1 = new HashSet(0);
-     private Set registrations_1 = new HashSet(0);
 
 
     // Constructors
@@ -41,26 +39,24 @@ public class Period  implements java.io.Serializable {
     }
     
     /** full constructor */
-    public Period(Date date, Time beginTime, Time endTime, Set schedules, Set workTimes, Set registrations, Set schedules_1, Set registrations_1) {
+    public Period(Date date, Time beginTime, Time endTime, Set schedules, Set workTimes, Set registrations) {
         this.date = date;
         this.beginTime = beginTime;
         this.endTime = endTime;
         this.schedules = schedules;
         this.workTimes = workTimes;
         this.registrations = registrations;
-        this.schedules_1 = schedules_1;
-        this.registrations_1 = registrations_1;
     }
 
    
     // Property accessors
 
-    public Integer getId() {
-        return this.id;
+    public Integer getPeriodId() {
+        return this.periodId;
     }
     
-    public void setId(Integer id) {
-        this.id = id;
+    public void setPeriodId(Integer periodId) {
+        this.periodId = periodId;
     }
 
     public Date getDate() {
@@ -111,21 +107,6 @@ public class Period  implements java.io.Serializable {
         this.registrations = registrations;
     }
 
-    public Set getSchedules_1() {
-        return this.schedules_1;
-    }
-    
-    public void setSchedules_1(Set schedules_1) {
-        this.schedules_1 = schedules_1;
-    }
-
-    public Set getRegistrations_1() {
-        return this.registrations_1;
-    }
-    
-    public void setRegistrations_1(Set registrations_1) {
-        this.registrations_1 = registrations_1;
-    }
    
 
 

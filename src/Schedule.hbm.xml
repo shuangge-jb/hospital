@@ -14,11 +14,11 @@
                 <column name="period_id" />
             </key-property>
         </composite-id>
-        <many-to-one name="doctor" class="persistance.Doctor" update="false" insert="false" fetch="select">
-            <column name="doctor_id" not-null="true" />
-        </many-to-one>
         <many-to-one name="period" class="persistance.Period" update="false" insert="false" fetch="select">
             <column name="period_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="doctor" class="persistance.Doctor" update="false" insert="false" fetch="select">
+            <column name="doctor_id" not-null="true" />
         </many-to-one>
     </class>
 </hibernate-mapping>

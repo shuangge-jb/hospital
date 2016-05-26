@@ -29,10 +29,11 @@ public class RegistrationDao extends HibernateDaoSupport {
 	public List<Map<String, String>> findRegistrations(String doctorName,
 			String date, String firstPeriodBegin, String lastPeriodBegin) {
 		String sql = null;
-		sql = " select r.id id,u.user_name userName ,p.begin_time beginTime"
+		sql = " select r.registration_id id,u.user_name userName ,p.begin_time beginTime"
 				+ " from registration r join doctor do join department de join user u join period p "
 				+ " where "
-				+ "r.doctor_id=do.id and r.department_id = de.id and r.user_id=u.user_id and r.period_id=p.id  and "
+				+ "r.doctor_id=do.doctor_id and r.department_id = de.department_id and "
+				+ " r.user_id=u.user_id and r.period_id=p.period_id  and "
 				+ " do.name=:doctorName and p.date=:date and "
 				+ " p.begin_time>=:firstPeriodBegin and p.begin_time<=:lastPeriodBegin";
 		@SuppressWarnings("unchecked")

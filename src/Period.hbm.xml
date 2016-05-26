@@ -6,8 +6,8 @@
 -->
 <hibernate-mapping>
     <class name="persistance.Period" table="period" catalog="hospital">
-        <id name="id" type="java.lang.Integer">
-            <column name="id" />
+        <id name="periodId" type="java.lang.Integer">
+            <column name="period_id" />
             <generator class="identity" />
         </id>
         <property name="date" type="java.util.Date">
@@ -37,17 +37,6 @@
             </key>
             <one-to-many class="persistance.Registration" />
         </set>
-        <set name="schedules_1" inverse="true">
-            <key>
-                <column name="period_id" not-null="true" />
-            </key>
-            <one-to-many class="persistance.Schedule" />
-        </set>
-        <set name="registrations_1" inverse="true">
-            <key>
-                <column name="period_id" not-null="true" />
-            </key>
-            <one-to-many class="persistance.Registration" />
-        </set>
+      
     </class>
 </hibernate-mapping>

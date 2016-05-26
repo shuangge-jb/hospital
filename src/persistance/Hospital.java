@@ -14,14 +14,17 @@ public class Hospital  implements java.io.Serializable {
 
     // Fields    
 
-     private Integer id;
+     private Integer hospitalId;
      private String name;
+     private String rank;
      private String address;
+     private String telephone;
+     private String path;
+     private String brief;
+     private String property;
      private Set departments = new HashSet(0);
      private Set doctors = new HashSet(0);
      private Set registrations = new HashSet(0);
-     private Set doctors_1 = new HashSet(0);
-     private Set departments_1 = new HashSet(0);
 
 
     // Constructors
@@ -31,31 +34,39 @@ public class Hospital  implements java.io.Serializable {
     }
 
 	/** minimal constructor */
-    public Hospital(String name, String address) {
+    public Hospital(String name, String rank, String address, String telephone, String path, String brief, String property) {
         this.name = name;
+        this.rank = rank;
         this.address = address;
+        this.telephone = telephone;
+        this.path = path;
+        this.brief = brief;
+        this.property = property;
     }
     
     /** full constructor */
-    public Hospital(String name, String address, Set departments, Set doctors, Set registrations, Set doctors_1, Set departments_1) {
+    public Hospital(String name, String rank, String address, String telephone, String path, String brief, String property, Set departments, Set doctors, Set registrations) {
         this.name = name;
+        this.rank = rank;
         this.address = address;
+        this.telephone = telephone;
+        this.path = path;
+        this.brief = brief;
+        this.property = property;
         this.departments = departments;
         this.doctors = doctors;
         this.registrations = registrations;
-        this.doctors_1 = doctors_1;
-        this.departments_1 = departments_1;
     }
 
    
     // Property accessors
 
-    public Integer getId() {
-        return this.id;
+    public Integer getHospitalId() {
+        return this.hospitalId;
     }
     
-    public void setId(Integer id) {
-        this.id = id;
+    public void setHospitalId(Integer hospitalId) {
+        this.hospitalId = hospitalId;
     }
 
     public String getName() {
@@ -66,12 +77,52 @@ public class Hospital  implements java.io.Serializable {
         this.name = name;
     }
 
+    public String getRank() {
+        return this.rank;
+    }
+    
+    public void setRank(String rank) {
+        this.rank = rank;
+    }
+
     public String getAddress() {
         return this.address;
     }
     
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public String getTelephone() {
+        return this.telephone;
+    }
+    
+    public void setTelephone(String telephone) {
+        this.telephone = telephone;
+    }
+
+    public String getPath() {
+        return this.path;
+    }
+    
+    public void setPath(String path) {
+        this.path = path;
+    }
+
+    public String getBrief() {
+        return this.brief;
+    }
+    
+    public void setBrief(String brief) {
+        this.brief = brief;
+    }
+
+    public String getProperty() {
+        return this.property;
+    }
+    
+    public void setProperty(String property) {
+        this.property = property;
     }
 
     public Set getDepartments() {
@@ -98,28 +149,6 @@ public class Hospital  implements java.io.Serializable {
         this.registrations = registrations;
     }
 
-    public Set getDoctors_1() {
-        return this.doctors_1;
-    }
-    
-    public void setDoctors_1(Set doctors_1) {
-        this.doctors_1 = doctors_1;
-    }
-
-    public Set getDepartments_1() {
-        return this.departments_1;
-    }
-    
-    public void setDepartments_1(Set departments_1) {
-        this.departments_1 = departments_1;
-    }
-   
-
-
-
-
-
-
-
+  
 
 }

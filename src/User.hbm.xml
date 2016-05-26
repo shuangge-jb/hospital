@@ -43,5 +43,6 @@
             </key>
             <one-to-many class="persistance.Registration" />
         </set>
+      
     </class>
 </hibernate-mapping>

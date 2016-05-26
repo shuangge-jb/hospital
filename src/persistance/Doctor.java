@@ -14,18 +14,16 @@ public class Doctor  implements java.io.Serializable {
 
     // Fields    
 
-     private Integer id;
-     private Department department;
+     private Integer doctorId;
      private Hospital hospital;
+     private Department department;
      private String name;
      private String sex;
-     private Integer age;
-     private String tel;
+     private String academicTitle;
+     private String speciality;
      private Set workTimes = new HashSet(0);
      private Set schedules = new HashSet(0);
-     private Set schedules_1 = new HashSet(0);
      private Set registrations = new HashSet(0);
-     private Set registrations_1 = new HashSet(0);
 
 
     // Constructors
@@ -35,47 +33,34 @@ public class Doctor  implements java.io.Serializable {
     }
 
 	/** minimal constructor */
-    public Doctor(Department department, Hospital hospital, String name, String sex, Integer age, String tel) {
-        this.department = department;
+    public Doctor(Hospital hospital, Department department, String name, String sex) {
         this.hospital = hospital;
+        this.department = department;
         this.name = name;
         this.sex = sex;
-        this.age = age;
-        this.tel = tel;
     }
     
     /** full constructor */
-    public Doctor(Department department, Hospital hospital, String name, String sex, Integer age, String tel, Set workTimes, Set schedules, Set schedules_1, Set registrations, Set registrations_1) {
-        this.department = department;
+    public Doctor(Hospital hospital, Department department, String name, String sex, String academicTitle, String speciality, Set workTimes, Set schedules, Set registrations) {
         this.hospital = hospital;
+        this.department = department;
         this.name = name;
         this.sex = sex;
-        this.age = age;
-        this.tel = tel;
+        this.academicTitle = academicTitle;
+        this.speciality = speciality;
         this.workTimes = workTimes;
         this.schedules = schedules;
-        this.schedules_1 = schedules_1;
         this.registrations = registrations;
-        this.registrations_1 = registrations_1;
-    }
 
-   
+    }
     // Property accessors
 
-    public Integer getId() {
-        return this.id;
+    public Integer getDoctorId() {
+        return this.doctorId;
     }
     
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public Department getDepartment() {
-        return this.department;
-    }
-    
-    public void setDepartment(Department department) {
-        this.department = department;
+    public void setDoctorId(Integer doctorId) {
+        this.doctorId = doctorId;
     }
 
     public Hospital getHospital() {
@@ -84,6 +69,14 @@ public class Doctor  implements java.io.Serializable {
     
     public void setHospital(Hospital hospital) {
         this.hospital = hospital;
+    }
+
+    public Department getDepartment() {
+        return this.department;
+    }
+    
+    public void setDepartment(Department department) {
+        this.department = department;
     }
 
     public String getName() {
@@ -102,20 +95,20 @@ public class Doctor  implements java.io.Serializable {
         this.sex = sex;
     }
 
-    public Integer getAge() {
-        return this.age;
+    public String getAcademicTitle() {
+        return this.academicTitle;
     }
     
-    public void setAge(Integer age) {
-        this.age = age;
+    public void setAcademicTitle(String academicTitle) {
+        this.academicTitle = academicTitle;
     }
 
-    public String getTel() {
-        return this.tel;
+    public String getSpeciality() {
+        return this.speciality;
     }
     
-    public void setTel(String tel) {
-        this.tel = tel;
+    public void setSpeciality(String speciality) {
+        this.speciality = speciality;
     }
 
     public Set getWorkTimes() {
@@ -134,13 +127,6 @@ public class Doctor  implements java.io.Serializable {
         this.schedules = schedules;
     }
 
-    public Set getSchedules_1() {
-        return this.schedules_1;
-    }
-    
-    public void setSchedules_1(Set schedules_1) {
-        this.schedules_1 = schedules_1;
-    }
 
     public Set getRegistrations() {
         return this.registrations;
@@ -150,13 +136,6 @@ public class Doctor  implements java.io.Serializable {
         this.registrations = registrations;
     }
 
-    public Set getRegistrations_1() {
-        return this.registrations_1;
-    }
-    
-    public void setRegistrations_1(Set registrations_1) {
-        this.registrations_1 = registrations_1;
-    }
    
 
 

@@ -25,7 +25,7 @@ public class WorkTimeDao extends HibernateDaoSupport {
 			String lastPeriodBegin) {
 		String sql = "select w.doctor_id,w.period_id "
 				+ " from worktime w join period p   "
-				+ "where w.period_id=p.id and w.doctor_id=:doctorId and p.date=:date "
+				+ "where w.period_id=p.period_id and w.doctor_id=:doctorId and p.date=:date "
 				+ " and p.begin_time>=:firstPeriodBegin and p.begin_time<=:lastPeriodBegin";
 		Query query = this.getSessionFactory().getCurrentSession()
 				.createSQLQuery(sql)
@@ -40,8 +40,8 @@ public class WorkTimeDao extends HibernateDaoSupport {
 
 	public boolean save(Doctor doctor, Period period) {
 		WorkTimeId workTimeId = new WorkTimeId();
-		workTimeId.setDoctorId(doctor.getId());
-		workTimeId.setPeriodId(period.getId());
+		workTimeId.setDoctorId(doctor.getDoctorId());
+		workTimeId.setPeriodId(period.getPeriodId());
 		WorkTime workTime = new WorkTime();
 		workTime.setId(workTimeId);
 		workTime.setDoctor(doctor);
@@ -52,7 +52,7 @@ public class WorkTimeDao extends HibernateDaoSupport {
 
 	public boolean delete(String doctorId, String date, String beginTime,
 			String endTime) {
-		String sql="select id from period p where where p.date=:date "
+		String sql="select period_id from period p where where p.date=:date "
 			+ "and p.begin_time=:beginTime and p.end_time=:endTime";
 		Query query=this.getSessionFactory().getCurrentSession().createSQLQuery(sql)
 				.addEntity("p",Period.class).setString("date", date)
@@ -62,7 +62,7 @@ public class WorkTimeDao extends HibernateDaoSupport {
 		this.getSessionFactory().getCurrentSession().createSQLQuery(sql)
 				.addEntity("w",WorkTime.class)
 				.setString("doctorId", doctorId)
-				.setString("periodId", String.valueOf(period.getId())).executeUpdate();
+				.setString("periodId", String.valueOf(period.getPeriodId())).executeUpdate();
 		return true;
 	}
 }

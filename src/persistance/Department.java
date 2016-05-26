@@ -3,7 +3,6 @@ package persistance;
 
 import java.util.HashSet;
 import java.util.Set;
-import persistance.Hospital;
 
 
 /**
@@ -13,18 +12,15 @@ import persistance.Hospital;
 public class Department  implements java.io.Serializable {
 
 
-    /**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-	// Fields    
+    // Fields    
 
-     private Integer id;
+     private Integer departmentId;
      private Hospital hospital;
-     private String type;
      private String name;
-     private Set<Registration> registrations = new HashSet<Registration>(0);
-     private Set<Doctor> doctors = new HashSet<Doctor>(0);
+     private Set registrations = new HashSet(0);
+//     private Set registrations_1 = new HashSet(0);
+     private Set doctors = new HashSet(0);
+     private Set doctors_1 = new HashSet(0);
 
 
     // Constructors
@@ -34,16 +30,14 @@ public class Department  implements java.io.Serializable {
     }
 
 	/** minimal constructor */
-    public Department(Hospital hospital, String type, String name) {
+    public Department(Hospital hospital, String name) {
         this.hospital = hospital;
-        this.type = type;
         this.name = name;
     }
     
     /** full constructor */
-    public Department(Hospital hospital, String type, String name, Set<Registration> registrations, Set<Doctor> doctors) {
+    public Department(Hospital hospital, String name, Set registrations,Set doctors ) {
         this.hospital = hospital;
-        this.type = type;
         this.name = name;
         this.registrations = registrations;
         this.doctors = doctors;
@@ -52,12 +46,12 @@ public class Department  implements java.io.Serializable {
    
     // Property accessors
 
-    public Integer getId() {
-        return this.id;
+    public Integer getDepartmentId() {
+        return this.departmentId;
     }
     
-    public void setId(Integer id) {
-        this.id = id;
+    public void setDepartmentId(Integer departmentId) {
+        this.departmentId = departmentId;
     }
 
     public Hospital getHospital() {
@@ -68,14 +62,6 @@ public class Department  implements java.io.Serializable {
         this.hospital = hospital;
     }
 
-    public String getType() {
-        return this.type;
-    }
-    
-    public void setType(String type) {
-        this.type = type;
-    }
-
     public String getName() {
         return this.name;
     }
@@ -84,20 +70,30 @@ public class Department  implements java.io.Serializable {
         this.name = name;
     }
 
-    public Set<Registration> getRegistrations() {
+    public Set getRegistrations() {
         return this.registrations;
     }
     
-    public void setRegistrations(Set<Registration> registrations) {
+    public void setRegistrations(Set registrations) {
         this.registrations = registrations;
     }
 
-    public Set<Doctor> getDoctors() {
+   
+
+    public Set getDoctors() {
         return this.doctors;
     }
     
-    public void setDoctors(Set<Doctor> doctors) {
+    public void setDoctors(Set doctors) {
         this.doctors = doctors;
+    }
+
+    public Set getDoctors_1() {
+        return this.doctors_1;
+    }
+    
+    public void setDoctors_1(Set doctors_1) {
+        this.doctors_1 = doctors_1;
     }
    
 

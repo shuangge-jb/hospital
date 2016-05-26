@@ -6,15 +6,15 @@
 -->
 <hibernate-mapping>
     <class name="persistance.Doctor" table="doctor" catalog="hospital">
-        <id name="id" type="java.lang.Integer">
-            <column name="id" />
+        <id name="doctorId" type="java.lang.Integer">
+            <column name="doctor_id" />
             <generator class="identity" />
         </id>
-        <many-to-one name="department" class="persistance.Department" fetch="select">
-            <column name="department_id" not-null="true" />
-        </many-to-one>
         <many-to-one name="hospital" class="persistance.Hospital" fetch="select">
             <column name="hospital_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="department" class="persistance.Department" fetch="select">
+            <column name="department_id" not-null="true" />
         </many-to-one>
         <property name="name" type="java.lang.String">
             <column name="name" length="20" not-null="true" />
@@ -22,11 +22,11 @@
         <property name="sex" type="java.lang.String">
             <column name="sex" length="2" not-null="true" />
         </property>
-        <property name="age" type="java.lang.Integer">
-            <column name="age" not-null="true" />
+        <property name="academicTitle" type="java.lang.String">
+            <column name="academic_title" length="20" />
         </property>
-        <property name="tel" type="java.lang.String">
-            <column name="tel" length="20" not-null="true" />
+        <property name="speciality" type="java.lang.String">
+            <column name="speciality" length="65535" />
         </property>
         <set name="workTimes" inverse="true">
             <key>
@@ -40,23 +40,13 @@
             </key>
             <one-to-many class="persistance.Schedule" />
         </set>
-        <set name="schedules_1" inverse="true">
-            <key>
-                <column name="doctor_id" not-null="true" />
-            </key>
-            <one-to-many class="persistance.Schedule" />
-        </set>
+       
         <set name="registrations" inverse="true">
             <key>
                 <column name="doctor_id" not-null="true" />
             </key>
             <one-to-many class="persistance.Registration" />
         </set>
-        <set name="registrations_1" inverse="true">
-            <key>
-                <column name="doctor_id" not-null="true" />
-            </key>
-            <one-to-many class="persistance.Registration" />
-        </set>
+      
     </class>
 </hibernate-mapping>

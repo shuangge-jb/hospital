@@ -23,7 +23,7 @@ public class HospitalDao extends HibernateDaoSupport {
 	public List<Department> findDepartmentsOfHospital(String hospitalName) {
 		return getHibernateTemplate()
 				.find("select Department from Department left outer join Hospital on "
-						+ "Department.hospital.id = Hospital.id where Hospital.name= "
+						+ "Department.hospital.hospital_id = Hospital.hospital_id where Hospital.name= "
 						+ hospitalName);
 	}
 

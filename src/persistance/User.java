@@ -151,6 +151,7 @@ public class User  implements java.io.Serializable {
     public void setRegistrations(Set registrations) {
         this.registrations = registrations;
     }
+
    
 
 

@@ -13,16 +13,12 @@ public class Registration  implements java.io.Serializable {
 
     // Fields    
 
-     /**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-	private Integer id;
+     private Integer registrationId;
      private User user;
-     private Doctor doctor;
-     private Department department;
      private Period period;
      private Hospital hospital;
+     private Department department;
+     private Doctor doctor;
      private Timestamp submitTime;
      private String state;
 
@@ -35,12 +31,12 @@ public class Registration  implements java.io.Serializable {
 
     
     /** full constructor */
-    public Registration(User user, Doctor doctor, Department department, Period period, Hospital hospital, Timestamp submitTime, String state) {
+    public Registration(User user, Period period, Hospital hospital, Department department, Doctor doctor, Timestamp submitTime, String state) {
         this.user = user;
-        this.doctor = doctor;
-        this.department = department;
         this.period = period;
         this.hospital = hospital;
+        this.department = department;
+        this.doctor = doctor;
         this.submitTime = submitTime;
         this.state = state;
     }
@@ -48,12 +44,12 @@ public class Registration  implements java.io.Serializable {
    
     // Property accessors
 
-    public Integer getId() {
-        return this.id;
+    public Integer getRegistrationId() {
+        return this.registrationId;
     }
     
-    public void setId(Integer id) {
-        this.id = id;
+    public void setRegistrationId(Integer registrationId) {
+        this.registrationId = registrationId;
     }
 
     public User getUser() {
@@ -62,22 +58,6 @@ public class Registration  implements java.io.Serializable {
     
     public void setUser(User user) {
         this.user = user;
-    }
-
-    public Doctor getDoctor() {
-        return this.doctor;
-    }
-    
-    public void setDoctor(Doctor doctor) {
-        this.doctor = doctor;
-    }
-
-    public Department getDepartment() {
-        return this.department;
-    }
-    
-    public void setDepartment(Department department) {
-        this.department = department;
     }
 
     public Period getPeriod() {
@@ -94,6 +74,22 @@ public class Registration  implements java.io.Serializable {
     
     public void setHospital(Hospital hospital) {
         this.hospital = hospital;
+    }
+
+    public Department getDepartment() {
+        return this.department;
+    }
+    
+    public void setDepartment(Department department) {
+        this.department = department;
+    }
+
+    public Doctor getDoctor() {
+        return this.doctor;
+    }
+    
+    public void setDoctor(Doctor doctor) {
+        this.doctor = doctor;
     }
 
     public Timestamp getSubmitTime() {

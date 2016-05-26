@@ -31,7 +31,7 @@ public class DoctorDao extends HibernateDaoSupport {
 
 	@SuppressWarnings("unchecked")
 	public Doctor findById(String doctorId) {
-		String sql = "select d.* from doctor d where d.id=:doctorId";
+		String sql = "select d.* from doctor d where d.doctor_id=:doctorId";
 		System.out.println("DoctorDao: " + this.getSessionFactory());
 		List<Doctor> list = this.getSessionFactory().getCurrentSession()
 				.createSQLQuery(sql).addEntity("d", Doctor.class)
