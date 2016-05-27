@@ -164,6 +164,6 @@
 	</bean>
 	
 	<bean id="insert" class="action.SelectTimeAction">
-		<property name="workTimeService" ref="workTimeService"></property>
+		<property name="scheduleService" ref="scheduleService"></property>
 	</bean>
 </beans>

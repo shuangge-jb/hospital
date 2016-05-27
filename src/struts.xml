@@ -24,6 +24,11 @@
 			<param name="excludeProperties">selectTimeService</param>  
 			</result>
 		</action>
+		
+		<action name="worktime" class="action.SelectTimeAction" method="worktime">
+			<result name="success" type="json">
+			</result>
+		</action>
 	</package>
 	<package name="submit" extends="struts-default">
 

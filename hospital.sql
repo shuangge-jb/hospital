@@ -490,3 +490,9 @@ use hospital;
 select do.name from doctor do join department de join hospital h 
 where do.department_id=de.department_id and do.hospital_id=h.hospital_id 
 and de.name='内科门诊' and h.name='广州中医药大学第一附属医院';
+
+use hospital;
+insert into period(date,begin_time,end_time) values("2016-05-27","09:00:00","10:00:00"),("2016-05-27","10:00:00","11:00:00");
+
+use hospital;
+insert into period(date,begin_time,end_time) values("2016-05-28","09:00:00","10:00:00"),("2016-05-29","09:00:00","10:00:00");

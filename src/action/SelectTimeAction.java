@@ -3,6 +3,7 @@ package action;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -22,7 +23,7 @@ public class SelectTimeAction extends ActionSupport {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private WorkTimeService workTimeService;
+	private ScheduleService scheduleService;
 	
 	public SelectTimeAction() {
 		super();
@@ -34,8 +35,8 @@ public class SelectTimeAction extends ActionSupport {
 	 * @param workTimeService
 	 *            the workTimeService to set
 	 */
-	public void setWorkTimeService(WorkTimeService workTimeService) {
-		this.workTimeService = workTimeService;
+	public void setScheduleService(ScheduleService scheduleService) {
+		this.scheduleService = scheduleService;
 	}
 
 	/**
@@ -46,7 +47,7 @@ public class SelectTimeAction extends ActionSupport {
 	public String insert() {
 		String doctorId = getValue("doctorId");
 		String periods = getValue("periods");
-		String result = workTimeService.save(doctorId, periods);
+		String result = scheduleService.save(doctorId, periods);
 		Logger.getLogger(SelectTimeAction.class).info("result: "+result);
 		return save(JSONArray.fromObject(new ArrayList<String>(1).add(result)));
 	}
@@ -59,12 +60,20 @@ public class SelectTimeAction extends ActionSupport {
 	public String delete() {
 		String doctorId = getValue("doctorId");
 		String periods = getValue("periods");
-		boolean result = workTimeService.delete(doctorId, periods);
+		boolean result = scheduleService.delete(doctorId, periods);
 		String resultStr = result == true ? SUCCESS : ERROR;
 		return save(JSONArray.fromObject(resultStr));
 		
 	}
 
+	public String worktime(){
+		List<String>list=new ArrayList<String>();
+		list.add("2016-5-28-上午-filled");
+		list.add("2016-5-29-上午-unfilled");
+		save(JSONArray.fromObject(list));
+		return SUCCESS;
+	}
+	
 	/**
 	 * 获取请求的数据
 	 * 
