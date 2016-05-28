@@ -18,17 +18,17 @@ $(document).ready(function(){
 			$(data).each(function(i) {
 				var period = data[i];
 				var dateArray=period.substring(0,10).split("-");
-				var mornOrAfter=period.substring(10,12);
-				var isFilled=period.substring(13);
+				var mornOrAfter=period.substring(11,13);
+				var isFilled=period.substring(14).trim();
 				var date=new Date(dateArray[0],dateArray[1]-1,dateArray[2]);
 				var dayNum=daysBetween(currentDate,date);
-				if(dayNum>=0){
+				if(dayNum>=0&&dayNum<7){//取当天开始7天的数据
 					var mornOrAfterStr=mornOrAfter=="上午"?"Morn":"After";
 					var id=week[dayNum]+mornOrAfterStr;
 					if(isFilled=="unfilled"){
 					$("#"+id).append("<button  class='unfilled handled btn btn-primary' value=\""+id+"\">预约</button>");
 					}else{
-						$("#"+id).append("<button  disabled=\"disabled\" class='filled handled btn  btn-warning' value=\""+id+"\">已满</button>");
+						$("#"+id).append("<button dieabled=\"disabled\"  class='filled handled btn  btn-warning' value=\""+id+"\">已满</button>");
 					}
 				}
 			});
@@ -53,6 +53,6 @@ function daysBetween(date1, date2) {
     // Calculate the difference in milliseconds
     var difference_ms =  date2_ms-date1_ms;
     // Convert back to days and return
-    return Math.round(difference_ms/ONE_DAY)
+    return Math.ceil(difference_ms/ONE_DAY)
 }
 

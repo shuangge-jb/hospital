@@ -47,21 +47,21 @@ public class ScheduleDao extends HibernateDaoSupport {
 	 * @param lastPeriodBegin
 	 * @return
 	 */
-	public WorkTime find(String doctorId, String date, String firstPeriodBegin,
+	public Schedule find(String doctorId, String date, String firstPeriodBegin,
 			String lastPeriodBegin) {
 		String sql = "select w.doctor_id,w.period_id "
-				+ " from worktime w join period p   "
+				+ " from schedule w join period p   "
 				+ "where w.period_id=p.period_id and w.doctor_id=:doctorId and p.date=:date "
 				+ " and p.begin_time>=:firstPeriodBegin and p.begin_time<=:lastPeriodBegin";
 		Query query = this.getSessionFactory().getCurrentSession()
 				.createSQLQuery(sql)
-				.addEntity("w", WorkTime.class)
+				.addEntity("w", Schedule.class)
 				.setString("doctorId", doctorId).setString("date", date)
 				.setString("firstPeriodBegin", firstPeriodBegin)
 				.setString("lastPeriodBegin", lastPeriodBegin);
 		@SuppressWarnings("unchecked")
-		List<WorkTime> list = query.list();
-		return list.size() > 0 ? (WorkTime) list.get(0) : null;
+		List<Schedule> list = query.list();
+		return list.size() > 0 ? (Schedule) list.get(0) : null;
 	}
 	
 	public boolean save(Doctor doctor, Period period) {
@@ -75,7 +75,7 @@ public class ScheduleDao extends HibernateDaoSupport {
 		this.getSessionFactory().getCurrentSession().save(schedule);
 		return false;
 	}
-	
+	@Deprecated
 	public boolean delete(String doctorId, String date, String beginTime,
 			String endTime) {
 		String sql="select period_id from period p where where p.date=:date "
@@ -91,4 +91,6 @@ public class ScheduleDao extends HibernateDaoSupport {
 				.setString("periodId", String.valueOf(period.getPeriodId())).executeUpdate();
 		return true;
 	}
+	
+	
 }

@@ -8,6 +8,8 @@ import org.hibernate.Query;
 import org.hibernate.transform.Transformers;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
+import persistance.Registration;
+
 /**
  * 
  * 
@@ -61,5 +63,18 @@ public class RegistrationDao extends HibernateDaoSupport {
 				.createSQLQuery(sql).setString("handled", HANDLED)
 				.setString("userId", userId).executeUpdate();
 		return result;
+	}
+
+	public List<Registration> find(String doctorName, String date,
+			String beginTime) {
+		String sql = "select r.* from (registration r join doctor d on r.doctor_id=d.doctor_id)"
+				+ " join period p on r.period_id = p.period_id "
+				+ "where d.name=:doctorName and p.date=:date and p.begin_time=:beginTime";
+		@SuppressWarnings("unchecked")
+		List<Registration> list = getSessionFactory().getCurrentSession()
+				.createSQLQuery(sql).addEntity("r", Registration.class)
+				.setString("doctorName", doctorName).setString("date", date)
+				.setString("beginTime", beginTime).list();
+		return list;
 	}
 }

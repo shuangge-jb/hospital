@@ -57,6 +57,7 @@ public class SelectTimeAction extends ActionSupport {
 	 * 
 	 * @return
 	 */
+	@Deprecated
 	public String delete() {
 		String doctorId = getValue("doctorId");
 		String periods = getValue("periods");
@@ -67,10 +68,9 @@ public class SelectTimeAction extends ActionSupport {
 	}
 
 	public String worktime(){
-		List<String>list=new ArrayList<String>();
-		list.add("2016-5-28-上午-filled");
-		list.add("2016-5-29-上午-unfilled");
-		save(JSONArray.fromObject(list));
+		String doctorName=getValue("doctorName");
+		JSONArray array=scheduleService.findPeriods(doctorName);
+		save(array);
 		return SUCCESS;
 	}
 	
@@ -101,7 +101,6 @@ public class SelectTimeAction extends ActionSupport {
 			writer.print(jsonArray);
 			writer.close();// 一定要关闭，否则会抛出异常
 		} catch (IOException e) {
-
 			e.printStackTrace();
 			return ERROR;
 		}

@@ -14,25 +14,54 @@ import net.sf.json.JSONArray;
 import persistance.Doctor;
 import persistance.Period;
 import persistance.Registration;
+import persistance.Schedule;
 import persistance.WorkTime;
 import dao.DoctorDao;
 import dao.PeriodDao;
+import dao.RegistrationDao;
 import dao.ScheduleDao;
 
 public class ScheduleService {
 	private ScheduleDao scheduleDao;
+	private RegistrationDao registrationDao;
 	private DoctorDao doctorDao;
 	private PeriodDao periodDao;
 	private static final String EXISTED = "已存在";
 	private static final String SUCCESS = "插入成功";
 	private static final String ERROR = "插入失败";
 	private static final int NUM_PERIODS=3;
+	private static final String MORNING="-上午";
+	private static final String AFTERNOON="-下午";
+	private static final String FILLED="filled";
+	private static final String UNFILLED="unfilled";
+	private static final int NUM_REGISTRATION_PRE_PERIOD=6;
 	/**
 	 * @param scheduleDao
 	 *            the scheduleDao to set
 	 */
 	public void setScheduleDao(ScheduleDao scheduleDao) {
 		this.scheduleDao = scheduleDao;
+	}
+
+	/**
+	 * @param registrationDao the registrationDao to set
+	 */
+	public void setRegistrationDao(RegistrationDao registrationDao) {
+		this.registrationDao = registrationDao;
+	}
+
+	/**
+	 * @param doctorDao the doctorDao to set
+	 */
+	public void setDoctorDao(DoctorDao doctorDao) {
+		this.doctorDao = doctorDao;
+	}
+
+	/**
+	 * @param periodDao the periodDao to set
+	 */
+	public void setPeriodDao(PeriodDao periodDao) {
+		this.periodDao = periodDao;
 	}
 
 	/**
@@ -46,8 +75,7 @@ public class ScheduleService {
 		Set<String> periodNames = new HashSet<String>(list.size());
 		if (list.size() > 0) {
 			for (Period item : list) {
-				String timeDesc = transformPeriod(item.getDate(),
-						item.getBeginTime());
+				String timeDesc = transformPeriod(doctorName,item);
 				periodNames.add(timeDesc);
 				System.out.println(timeDesc);
 			}
@@ -66,16 +94,22 @@ public class ScheduleService {
 	 * @param time
 	 * @return
 	 */
-	private String transformPeriod(Date date, Time time) {
+	
+	private String transformPeriod(String doctorName,Period period) {
+		Date date=period.getDate();
+		Time time=period.getBeginTime();
 		long morningBeginHour = Time.valueOf("09:00:00").getTime();
 		long morningEndHour = Time.valueOf("11:00:00").getTime();
 		String timeDesc = null;
 		long hour = time.getTime();
+		String mornOrAfter=null;
 		if (hour >= morningBeginHour && hour <= morningEndHour) {
-			timeDesc = date.toString().substring(0, 10) + " 上午";
+			mornOrAfter= MORNING;
 		} else {
-			timeDesc = date.toString().substring(0, 10) + " 下午";
+			mornOrAfter=AFTERNOON;
 		}
+		String isFilled=isFilled(doctorName,period)?FILLED:UNFILLED;
+		timeDesc = date.toString().substring(0, 10) +mornOrAfter+"-"+isFilled;
 		return timeDesc;
 	}
 	
@@ -105,6 +139,14 @@ public class ScheduleService {
 		return counter == NUM_PERIODS ? SUCCESS : ERROR;
 	}
 
+	public List<String> getWorkTime(String doctorName){
+		List<Period> periods=scheduleDao.findPeriods(doctorName);
+		List<String>result=new ArrayList<String>(periods.size());
+		for(Period item:periods){
+			result.add(transformPeriod(doctorName,item));
+		}
+		return result;
+	}
 	private boolean save(String doctorId, String date, String beginTime,
 			String endTime) {
 		System.out.println("doctorId: " + doctorId);
@@ -114,11 +156,11 @@ public class ScheduleService {
 			periodDao.save(date, beginTime, endTime);
 			period = periodDao.find(date, beginTime, endTime);
 		}
-
 		scheduleDao.save(doctor, period);
 		return true;
 	}
 
+	@Deprecated
 	public boolean delete(String doctorId, String periods) {
 		String date = periods.substring(0, 10);
 		if (periods.contains("上午")) {
@@ -147,9 +189,24 @@ public class ScheduleService {
 				: "14:00:00";
 		String lastPeriodBegin = periods.contains("上午") ? "11:00:00"
 				: "16:00:00";
-		WorkTime workTime = scheduleDao.find(doctorId, date, firstPeriodBegin,
+		Schedule schedule = scheduleDao.find(doctorId, date, firstPeriodBegin,
 				lastPeriodBegin);
-		Logger.getLogger(WorkTimeService.class).info("workTime : "+workTime);
-		return workTime != null;
+		Logger.getLogger(ScheduleService.class).info("workTime : "+schedule);
+		return schedule != null;
+	}
+	/**
+	 * 判断该时间段是否已满
+	 * 每个时间段最多看5个病人
+	 * @param doctorName
+	 * @param period
+	 * @return
+	 */
+	private boolean isFilled(String doctorName,Period period){
+		SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");  
+		Date date=period.getDate();  
+		String dateStr=sdf.format(date);  
+		String time=period.getBeginTime().toString();
+		List<Registration>list=registrationDao.find(doctorName, dateStr, time);
+		return list.size()>=NUM_REGISTRATION_PRE_PERIOD;
 	}
 }

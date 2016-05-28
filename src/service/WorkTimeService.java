@@ -12,7 +12,7 @@ import persistance.WorkTime;
 import dao.DoctorDao;
 import dao.PeriodDao;
 import dao.WorkTimeDao;
-
+@Deprecated
 public class WorkTimeService {
 	private WorkTimeDao workTimeDao;
 	private DoctorDao doctorDao;

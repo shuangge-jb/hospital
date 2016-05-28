@@ -496,3 +496,15 @@ insert into period(date,begin_time,end_time) values("2016-05-27","09:00:00","10:
 
 use hospital;
 insert into period(date,begin_time,end_time) values("2016-05-28","09:00:00","10:00:00"),("2016-05-29","09:00:00","10:00:00");
+
+use hospital;
+insert into schedule(doctor_id,period_id) values(10,11),(10,12),(10,13),(10,14);
+
+use hospital;
+insert into registration(doctor_id,department_id,period_id,user_id,hospital_id,submitTime,state)
+values(10,8,14,123,5,"2016-05-28","已挂号");
+
+use hospital;
+select r.* from (registration r join doctor d on r.doctor_id=d.doctor_id)
+				 join period p on r.period_id = p.period_id 
+				where d.name="柯晓燕" and p.date='2016-05-29' and p.begin_time='09:00:00';

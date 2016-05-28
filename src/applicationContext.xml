@@ -92,7 +92,9 @@
 	</bean>
 	<bean id="scheduleService" class="service.ScheduleService">
 		<property name="scheduleDao" ref="scheduleDao"></property>
-		
+		<property name="registrationDao" ref="registrationDao"></property>
+		<property name="periodDao" ref="periodDao"></property>
+		<property name="doctorDao" ref="doctorDao"></property>
 	</bean>
 	<bean id="workTimeService" class="service.WorkTimeService">
 		<property name="workTimeDao" ref="workTimeDao"></property>
